@@ -1,0 +1,1687 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth" style="scroll-padding-top: 5rem;">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Department of IT | K.P.B. Hinduja College</title>
+    <link rel="icon" type="image/png" href="assets/BSCIT_LOGO.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    colors: {
+                        brand: {
+                            dark: '#05050A',
+                            card: '#0F0F1A',
+                            cardHover: '#161626',
+                            purple: '#8B5CF6',
+                            purpleLight: '#A78BFA',
+                            purpleDark: '#5B21B6',
+                            accent: '#D8B4FE',
+                        }
+                    },
+                    animation: {
+                        'blob': 'blob 10s infinite',
+                        'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
+                        'gradient-x': 'gradient-x 4s ease infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        blob: {
+                            '0%': { transform: 'translate(0px, 0px) scale(1)' },
+                            '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
+                            '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
+                            '100%': { transform: 'translate(0px, 0px) scale(1)' },
+                        },
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(30px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        'gradient-x': {
+                            '0%, 100%': {
+                                'background-size': '200% 200%',
+                                'background-position': 'left center'
+                            },
+                            '50%': {
+                                'background-size': '200% 200%',
+                                'background-position': 'right center'
+                            },
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-15px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #05050A; }
+        ::-webkit-scrollbar-thumb { background: #3c1a7a; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #8B5CF6; }
+        
+        /* Base Styles & Grid Background */
+        body {
+            background-color: #05050A;
+            background-image: 
+                linear-gradient(to right, rgba(139, 92, 246, 0.03) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(139, 92, 246, 0.03) 1px, transparent 1px);
+            background-size: 40px 40px;
+            color: #F8FAFC;
+            overflow-x: hidden;
+        }
+
+        /* Glassmorphism Refined */
+        .glass {
+            background: rgba(15, 15, 26, 0.6);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(139, 92, 246, 0.1);
+        }
+
+        .glass-card {
+            background: linear-gradient(145deg, rgba(22, 22, 38, 0.7) 0%, rgba(15, 15, 26, 0.8) 100%);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(139, 92, 246, 0.15);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* Top Highlight for Cards */
+        .glass-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(139, 92, 246, 0.5), transparent);
+        }
+
+        /* Hover Glow Effect */
+        .hover-glow { transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
+        .hover-glow:hover {
+            border-color: rgba(139, 92, 246, 0.4);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px -5px rgba(139, 92, 246, 0.2), 0 0 15px rgba(139, 92, 246, 0.1);
+            background: linear-gradient(145deg, rgba(30, 30, 50, 0.8) 0%, rgba(15, 15, 26, 0.9) 100%);
+        }
+
+        /* Scroll Animation Classes */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Marquee Animation */
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .animate-marquee {
+            animation: marquee 35s linear infinite;
+        }
+        .animate-marquee-reverse {
+            animation: marquee 45s linear reverse infinite;
+        }
+        .marquee-pause:hover .animate-marquee,
+        .marquee-pause:hover .animate-marquee-reverse {
+            animation-play-state: paused;
+        }
+        .marquee-mask {
+            mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+            -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-brand-purple selection:text-white">
+
+    <!-- Ambient Background Blobs -->
+    <div class="fixed inset-0 w-full h-full pointer-events-none z-[-1] overflow-hidden">
+        <div class="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] bg-brand-purpleDark rounded-full mix-blend-screen filter blur-[100px] opacity-20 animate-blob"></div>
+        <div class="absolute top-[20%] right-[-10%] w-[400px] h-[400px] bg-fuchsia-900 rounded-full mix-blend-screen filter blur-[100px] opacity-20 animate-blob" style="animation-delay: 2s;"></div>
+        <div class="absolute bottom-[-10%] left-[20%] w-[600px] h-[600px] bg-brand-purple rounded-full mix-blend-screen filter blur-[120px] opacity-10 animate-blob" style="animation-delay: 4s;"></div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="fixed w-full z-50 transition-all duration-300 border-b border-transparent" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <div class="flex-shrink-0 flex items-center gap-3 cursor-pointer group" onclick="window.scrollTo(0,0)">
+                    <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-brand-purple to-brand-purpleDark flex items-center justify-center font-mono font-bold text-xl shadow-[0_0_20px_rgba(139,92,246,0.4)] group-hover:shadow-[0_0_25px_rgba(139,92,246,0.6)] transition-all">
+                        <img src="assets/Cllglogo.png" alt="Logo">
+                    </div>
+                    <div>
+                        <h1 class="text-lg font-extrabold leading-tight tracking-wide text-white">K.P.B. Hinduja College</h1>
+                        <p class="text-[11px] text-brand-purpleLight font-mono tracking-wider uppercase">Dept. of BScIT & MScIT</p>
+                    </div>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-1">
+                        <a href="#home" class="hover:text-white text-gray-300 px-4 py-2 rounded-lg text-sm font-medium transition-all hover:bg-white/5">Home</a>
+                        <a href="#about" class="hover:text-white text-gray-300 px-4 py-2 rounded-lg text-sm font-medium transition-all hover:bg-white/5">About</a>
+                        <a href="#courses" class="hover:text-white text-gray-300 px-4 py-2 rounded-lg text-sm font-medium transition-all hover:bg-white/5">Academics</a>
+                        <a href="#faculty" class="hover:text-white text-gray-300 px-4 py-2 rounded-lg text-sm font-medium transition-all hover:bg-white/5">Faculty</a>
+                        <a href="#events" class="hover:text-white text-gray-300 px-4 py-2 rounded-lg text-sm font-medium transition-all hover:bg-white/5">Events</a>
+                         <a href="assets/ACADEMIC BROCHURE.pdf" download class="hover:text-white text-gray-300 px-4 py-2 rounded-lg text-sm font-medium transition-all hover:bg-white/5 flex items-center gap-2">
+                             <i class="fas fa-file-pdf text-brand-purpleLight"></i> Brochure
+                         </a>
+                        <a href="#contact" class="ml-4 bg-white/10 border border-brand-purple/30 hover:bg-brand-purple hover:border-brand-purple text-white px-5 py-2 rounded-lg text-sm font-medium transition-all shadow-[0_0_15px_rgba(139,92,246,0.2)] hover:shadow-[0_0_25px_rgba(139,92,246,0.5)] backdrop-blur-md">Visit Us</a>
+                    </div>
+                </div>
+                <!-- Mobile menu button -->
+                <div class="-mr-2 flex md:hidden">
+                    <button type="button" id="mobile-menu-btn" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-white/10 focus:outline-none transition-colors">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div class="md:hidden hidden glass border-t border-gray-800" id="mobile-menu">
+            <div class="px-4 pt-2 pb-4 space-y-1">
+                <a href="#home" class="block px-3 py-2.5 rounded-lg text-base font-medium text-gray-300 hover:text-white hover:bg-brand-purple/20">Home</a>
+                <a href="#about" class="block px-3 py-2.5 rounded-lg text-base font-medium text-gray-300 hover:text-white hover:bg-brand-purple/20">About</a>
+                <a href="#courses" class="block px-3 py-2.5 rounded-lg text-base font-medium text-gray-300 hover:text-white hover:bg-brand-purple/20">Academics</a>
+                <a href="#faculty" class="block px-3 py-2.5 rounded-lg text-base font-medium text-gray-300 hover:text-white hover:bg-brand-purple/20">Faculty</a>
+                <a href="#events" class="block px-3 py-2.5 rounded-lg text-base font-medium text-gray-300 hover:text-white hover:bg-brand-purple/20">Events</a>
+                <a href="assets/ACADEMIC BROCHURE.pdf" download class="block px-3 py-2.5 rounded-lg text-base font-medium text-gray-300 hover:text-white hover:bg-brand-purple/20 flex items-center gap-3">
+                    <i class="fas fa-file-pdf text-brand-purpleLight"></i> Download Brochure
+                </a>
+                <a href="#contact" class="block px-3 py-2.5 rounded-lg text-base font-medium text-brand-purpleLight hover:text-white hover:bg-brand-purple/20">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 min-h-screen flex items-center">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+            <div class="flex flex-col lg:flex-row items-center gap-16 lg:gap-8">
+                <!-- Text Content -->
+                <div class="lg:w-1/2 text-center lg:text-left animate-fade-in-up">
+                    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-brand-purple/30 bg-brand-purple/10 text-brand-purpleLight text-xs font-mono mb-8 shadow-[0_0_15px_rgba(139,92,246,0.15)]">
+                        <span class="relative flex h-2 w-2">
+                          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-purple opacity-75"></span>
+                          <span class="relative inline-flex rounded-full h-2 w-2 bg-brand-purple"></span>
+                        </span>
+                        NAAC Re-Accredited Grade A+ (3rd Cycle)
+                    </div>
+                    <h1 class="text-5xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight mb-6 leading-[1.1]">
+                        <span class="block text-white mb-2">Architect Your</span>
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-purpleLight via-brand-purple to-pink-500 animate-gradient-x">Digital Future.</span>
+                    </h1>
+                    <p class="mt-6 text-lg sm:text-xl text-gray-400 mb-10 max-w-2xl mx-auto lg:mx-0 font-light leading-relaxed">
+                        Join the Department of Information Technology at <span class="text-gray-200 font-medium">K.P.B Hinduja College</span>. We empower students not only to excel, but to outshine in the dynamic world of technology.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                        <a href="#courses" class="px-8 py-4 rounded-xl bg-gradient-to-r from-brand-purple to-brand-purpleDark text-white font-bold tracking-wide shadow-[0_0_20px_rgba(139,92,246,0.4)] hover:shadow-[0_0_35px_rgba(139,92,246,0.6)] transition-all transform hover:-translate-y-1 flex items-center justify-center gap-2">
+                            Explore Programs <i class="fas fa-arrow-right text-sm"></i>
+                        </a>
+                        <a href="#about" class="px-8 py-4 rounded-xl glass border border-gray-700 hover:border-brand-purpleLight hover:bg-white/5 text-white font-medium transition-all flex items-center justify-center">
+                            Discover More
+                        </a>
+                        <a href="assets/ACADEMIC BROCHURE.pdf" download class="px-8 py-4 rounded-xl border border-brand-purple/30 bg-brand-purple/5 hover:bg-brand-purple/10 text-white font-medium transition-all flex items-center justify-center gap-3 group">
+                            <i class="fas fa-download text-brand-purpleLight group-hover:animate-bounce"></i> Download Brochure
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Graphic Content -->
+                <div class="lg:w-1/2 relative w-full reveal animate-float">
+                    <div class="relative w-full max-w-lg mx-auto aspect-square">
+                        <!-- Glow behind image -->
+                        <div class="absolute inset-0 bg-gradient-to-tr from-brand-purple via-brand-purpleDark to-transparent rounded-full opacity-30 blur-3xl"></div>
+                        
+                        <!-- Main Image -->
+                        <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Technology Concept" class="rounded-2xl shadow-2xl border border-white/10 object-cover w-full h-full z-10 relative" style="mask-image: radial-gradient(circle at center, black 60%, transparent 100%); -webkit-mask-image: radial-gradient(circle at center, black 60%, transparent 100%);">
+                        
+                        <!-- Floating Glass UI Elements -->
+                        <div class="absolute -right-6 top-1/4 glass px-5 py-4 rounded-xl z-20 flex items-center gap-4 shadow-xl border border-white/10 backdrop-blur-xl animate-float" style="animation-duration: 4s;">
+                            <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-brand-purple to-pink-500 flex items-center justify-center text-white">
+                                <i class="fas fa-laptop-code text-lg"></i>
+                            </div>
+                            <div class="text-left">
+                                <p class="text-[10px] text-gray-400 uppercase tracking-wider font-bold">Programs</p>
+                                <p class="font-bold text-white font-mono text-sm">BSc.IT & MSc.IT</p>
+                            </div>
+                        </div>
+
+                        <div class="absolute -left-6 bottom-1/3 glass px-5 py-4 rounded-xl z-20 flex items-center gap-4 shadow-xl border border-white/10 backdrop-blur-xl animate-float" style="animation-duration: 5s; animation-delay: 1.5s;">
+                            <div class="w-10 h-10 rounded-lg bg-gray-800 border border-gray-600 flex items-center justify-center text-brand-accent">
+                                <i class="fas fa-shield-check text-lg"></i>
+                            </div>
+                            <div class="text-left">
+                                <p class="text-[10px] text-gray-400 uppercase tracking-wider font-bold">Status</p>
+                                <p class="font-bold text-white font-mono text-sm">Autonomous</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Decorative code block -->
+                        <div class="absolute -bottom-8 right-10 glass p-3 rounded-lg z-20 border border-white/5 shadow-2xl backdrop-blur-md hidden md:block">
+                            <pre class="text-[10px] text-brand-purpleLight font-mono"><code><span class="text-pink-500">const</span> future <span class="text-pink-500">=</span> <span class="text-blue-400">await</span> HindujaIT.<span class="text-green-400">build</span>();<br/><span class="text-gray-400">console</span>.log(<span class="text-yellow-300">'Success!'</span>);</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Premium Stats Divider -->
+    <div class="relative z-20 -mt-10 mb-10">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="glass-card rounded-2xl p-8 grid grid-cols-2 md:grid-cols-4 gap-8 divide-x divide-gray-800/50">
+                <div class="text-center px-4">
+                    <div class="w-12 h-12 mx-auto bg-brand-purple/10 rounded-full flex items-center justify-center mb-3">
+                        <i class="fas fa-award text-brand-purpleLight text-xl"></i>
+                    </div>
+                    <div class="text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400 mb-1 font-mono">A+</div>
+                    <div class="text-xs text-brand-purpleLight uppercase tracking-widest font-bold">NAAC Grade</div>
+                </div>
+                <div class="text-center px-4">
+                    <div class="w-12 h-12 mx-auto bg-brand-purple/10 rounded-full flex items-center justify-center mb-3">
+                        <i class="fas fa-chalkboard-teacher text-brand-purpleLight text-xl"></i>
+                    </div>
+                    <div class="text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400 mb-1 font-mono">11+</div>
+                    <div class="text-xs text-brand-purpleLight uppercase tracking-widest font-bold">Expert Faculty</div>
+                </div>
+                <div class="text-center px-4">
+                    <div class="w-12 h-12 mx-auto bg-brand-purple/10 rounded-full flex items-center justify-center mb-3">
+                        <i class="fas fa-graduation-cap text-brand-purpleLight text-xl"></i>
+                    </div>
+                    <div class="text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400 mb-1 font-mono">02</div>
+                    <div class="text-xs text-brand-purpleLight uppercase tracking-widest font-bold">Degree Programs</div>
+                </div>
+                <div class="text-center px-4">
+                    <div class="w-12 h-12 mx-auto bg-brand-purple/10 rounded-full flex items-center justify-center mb-3">
+                        <i class="fas fa-chart-line text-brand-purpleLight text-xl"></i>
+                    </div>
+                    <div class="text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400 mb-1 font-mono">100%</div>
+                    <div class="text-xs text-brand-purpleLight uppercase tracking-widest font-bold">Commitment</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- About Section -->
+    <section id="about" class="py-24 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-12 reveal">
+                <div class="inline-flex items-center gap-2 mb-3">
+                    <span class="h-px w-8 bg-brand-purple"></span>
+                    <h2 class="text-brand-purpleLight font-mono text-sm tracking-widest uppercase">Our Foundation</h2>
+                    <span class="h-px w-8 bg-brand-purple"></span>
+                </div>
+                <h3 class="text-3xl md:text-5xl font-extrabold">Tradition Meets Innovation</h3>
+            </div>
+            <!-- Founders Strip -->
+            <div class="mb-16 glass-card rounded-2xl p-6 md:p-8 flex flex-col md:flex-row items-center justify-between reveal">
+                <div class="flex items-center gap-6 mb-6 md:mb-0">
+                    <div class="w-20 h-20 md:w-24 md:h-24 rounded-full bg-gray-900 border border-gray-700 flex items-center justify-center text-3xl md:text-4xl shadow-inner shrink-0">
+                        <i class="fas fa-seedling text-brand-purpleLight"></i>
+                    </div>
+                    <div>
+                        <h5 class="text-xl font-bold text-white mb-1">Founding Values</h5>
+                        <p class="text-xs text-gray-400 uppercase tracking-wider font-mono">Shri. Parmanand Deepchand Hinduja (1901-1971)</p>
+                    </div>
+                </div>
+                <div class="flex flex-wrap justify-center md:justify-end gap-3 font-mono text-sm">
+                    <span class="px-4 py-2 bg-brand-dark/80 text-gray-300 rounded-lg border border-white/5 hover:border-brand-purple/50 transition-colors">~ Work to Give</span>
+                    <span class="px-4 py-2 bg-brand-dark/80 text-gray-300 rounded-lg border border-white/5 hover:border-brand-purple/50 transition-colors">~ A Word is a Bond</span>
+                    <span class="px-4 py-2 bg-brand-dark/80 text-gray-300 rounded-lg border border-white/5 hover:border-brand-purple/50 transition-colors">~ Act Local, Think Global</span>
+                </div>
+            </div>
+
+            <div class="grid lg:grid-cols-3 gap-8">
+                <!-- Mission & Vision -->
+                <div class="lg:col-span-1 space-y-8 reveal">
+                    <div class="glass-card p-8 rounded-2xl hover-glow h-full flex flex-col relative group">
+                        <div class="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-20 transition-opacity">
+                            <i class="fas fa-quote-right text-6xl text-brand-purple"></i>
+                        </div>
+                        
+                        <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-brand-purple to-brand-purpleDark flex items-center justify-center mb-6 shadow-lg">
+                            <i class="fas fa-bullseye text-white text-xl"></i>
+                        </div>
+                        <h4 class="text-2xl font-bold mb-4 text-white">Our Mission</h4>
+                        <p class="text-gray-400 text-sm leading-relaxed mb-10 flex-grow">
+                            "To inculcate the values of hardwork, diligence and determination and above all, the will to succeed through a holistic and multi-pronged approach."
+                        </p>
+
+                        <div class="w-12 h-12 rounded-xl bg-gray-800 border border-gray-600 flex items-center justify-center mb-6">
+                            <i class="fas fa-eye text-brand-accent text-xl"></i>
+                        </div>
+                        <h4 class="text-2xl font-bold mb-4 text-white">Our Vision</h4>
+                        <p class="text-gray-400 text-sm leading-relaxed">
+                            "To empower our students not only to excel, but to outshine."
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Messages -->
+                <div class="lg:col-span-2 space-y-8">
+                    <!-- Principal -->
+                    <div class="glass-card p-8 rounded-2xl reveal hover-glow relative overflow-hidden">
+                        <div class="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-brand-purple to-pink-500"></div>
+                        <div class="flex flex-col md:flex-row gap-8 items-start">
+                            <div class="shrink-0 relative">
+                                <div class="absolute inset-0 bg-brand-purple rounded-full blur-xl opacity-40"></div>
+                                <img src="https://ui-avatars.com/api/?name=Navin+Punjabi&background=1E1E2E&color=fff&size=200" alt="Principal" class="w-32 h-32 md:w-36 md:h-36 rounded-full border-2 border-brand-purple/50 relative z-10 shadow-2xl">
+                            </div>
+                            <div>
+                                <h4 class="text-2xl font-bold text-white mb-1">Dr. Navin M. Punjabi</h4>
+                                <p class="text-brand-accent text-sm font-mono mb-5 uppercase tracking-wide">Principal In-charge</p>
+                                <div class="bg-white/5 border border-white/10 rounded-lg p-4 mb-5 backdrop-blur-sm">
+                                    <p class="text-gray-300 text-sm italic font-mono leading-relaxed">
+                                        "ज्ञानं न लुण्ठितं न च राज्ञा हतु शक्यते। न भ्ञातृषु विभकतुं शक्यते, न च भारं भवति। वर्धते, यदि तन्यमितरूपेण प्रयोगः भवति। ज्ञानं महततिं विधं धनम्।"
+                                    </p>
+                                </div>
+                                <p class="text-gray-400 text-sm leading-relaxed">
+                                    It is my immense pleasure to extend a warm welcome to each of you at K.P.B Hinduja College. The college strives to create a student-centric academic environment aligned with industry needs and global perspectives, focusing on strengthening academic programmes through research and innovation.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Director -->
+                    <div class="glass-card p-8 rounded-2xl reveal hover-glow relative overflow-hidden">
+                        <div class="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-blue-500 to-brand-purple"></div>
+                        <div class="flex flex-col md:flex-row gap-8 items-start">
+                            <div class="shrink-0 relative">
+                                <div class="absolute inset-0 bg-blue-500 rounded-full blur-xl opacity-30"></div>
+                                <img src="https://ui-avatars.com/api/?name=Minu+Madlani&background=1E1E2E&color=fff&size=200" alt="Director" class="w-32 h-32 md:w-36 md:h-36 rounded-full border-2 border-blue-500/50 relative z-10 shadow-2xl">
+                            </div>
+                            <div>
+                                <h4 class="text-2xl font-bold text-white mb-1">Dr. Minu Madlani</h4>
+                                <p class="text-blue-400 text-sm font-mono mb-5 uppercase tracking-wide">Director & Advisor</p>
+                                <p class="text-gray-400 text-sm leading-relaxed">
+                                    Education at Hinduja College extends beyond classrooms. Our students have excelled across numerous competitions and achieved impressive placement ratios. We encourage you to dream big, explore new opportunities and thrive for excellence because your success defines the future of our institution.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            
+        </div>
+    </section>
+
+    <!-- Academics & Course Structure Section -->
+    <section id="courses" class="py-24 relative">
+        <!-- Subtle background highlight for this section -->
+        <div class="absolute inset-0 bg-brand-purple/5 border-y border-white/5 backdrop-blur-3xl"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-16 reveal">
+                <div class="inline-flex items-center gap-2 mb-3">
+                    <span class="h-px w-8 bg-brand-purple"></span>
+                    <h2 class="text-brand-purpleLight font-mono text-sm tracking-widest uppercase">Curriculum</h2>
+                    <span class="h-px w-8 bg-brand-purple"></span>
+                </div>
+                <h3 class="text-3xl md:text-5xl font-extrabold text-white">Academic Structure</h3>
+                <p class="mt-4 text-gray-400 max-w-2xl mx-auto text-lg">Updated syllabus aligned with NEP standards, engineered to forge industry-ready professionals.</p>
+            </div>
+
+            <!-- Main Tabs -->
+            <div class="flex flex-wrap justify-center gap-3 mb-10 reveal bg-brand-dark/50 p-2 rounded-2xl border border-white/5 inline-flex mx-auto max-w-fit">
+                <button class="tab-btn active px-6 py-3 rounded-xl text-sm font-bold font-mono transition-all bg-brand-purple text-white shadow-[0_0_15px_rgba(139,92,246,0.3)]" onclick="showTab('nep')">NEP Credits</button>
+                <button class="tab-btn px-6 py-3 rounded-xl text-sm font-bold font-mono transition-all bg-transparent text-gray-400 hover:text-white hover:bg-white/5" onclick="showTab('bsc')">BSc IT Syllabus</button>
+                <button class="tab-btn px-6 py-3 rounded-xl text-sm font-bold font-mono transition-all bg-transparent text-gray-400 hover:text-white hover:bg-white/5" onclick="showTab('msc')">MSc IT Syllabus</button>
+            </div>
+
+            <!-- Tab Contents -->
+            <div class="glass-card rounded-3xl overflow-hidden reveal min-h-[400px]">
+                
+                <!-- NEP Table -->
+                <div id="tab-nep" class="tab-content block p-6 md:p-10">
+                    <div class="flex items-center gap-4 mb-8">
+                        <div class="w-12 h-12 rounded-xl bg-brand-purple/20 flex items-center justify-center text-brand-purpleLight">
+                            <i class="fas fa-layer-group text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-2xl font-bold text-white">NEP Credit System Framework</h4>
+                            <p class="text-gray-400 text-sm mt-1">Structured progression aligned with National Education Policy.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="overflow-x-auto rounded-xl border border-gray-800">
+                        <table class="w-full text-left border-collapse">
+                            <thead>
+                                <tr class="border-b border-gray-800 bg-gray-900/80 text-brand-purpleLight font-mono text-sm uppercase tracking-wider">
+                                    <th class="p-5 font-bold">Levels</th>
+                                    <th class="p-5 font-bold">Qualification Title</th>
+                                    <th class="p-5 font-bold">Min/Max Credits</th>
+                                    <th class="p-5 font-bold">Duration</th>
+                                </tr>
+                            </thead>
+                            <tbody class="text-gray-300 text-sm">
+                                <tr class="border-b border-gray-800/50 hover:bg-white/5 transition-colors group">
+                                    <td class="p-5 font-mono text-brand-accent group-hover:text-white">4.5</td>
+                                    <td class="p-5 font-medium">UG Certificate</td>
+                                    <td class="p-5"><span class="bg-gray-800 px-3 py-1 rounded-md border border-gray-700">40-44</span></td>
+                                    <td class="p-5 text-gray-400">1 Year, 2 Semesters</td>
+                                </tr>
+                                <tr class="border-b border-gray-800/50 hover:bg-white/5 transition-colors group">
+                                    <td class="p-5 font-mono text-brand-accent group-hover:text-white">5.0</td>
+                                    <td class="p-5 font-medium">UG Diploma</td>
+                                    <td class="p-5"><span class="bg-gray-800 px-3 py-1 rounded-md border border-gray-700">80-88</span></td>
+                                    <td class="p-5 text-gray-400">2 Years, 4 Semesters</td>
+                                </tr>
+                                <tr class="border-b border-gray-800/50 hover:bg-white/5 transition-colors group">
+                                    <td class="p-5 font-mono text-brand-accent group-hover:text-white">5.5</td>
+                                    <td class="p-5 font-medium text-white">Bachelor's Degree</td>
+                                    <td class="p-5"><span class="bg-brand-purple/20 text-brand-purpleLight px-3 py-1 rounded-md border border-brand-purple/30">120-132</span></td>
+                                    <td class="p-5 text-gray-400">3 Years, 6 Semesters</td>
+                                </tr>
+                                <tr class="border-b border-gray-800/50 hover:bg-white/5 transition-colors group">
+                                    <td class="p-5 font-mono text-brand-accent group-hover:text-white">6.0</td>
+                                    <td class="p-5 font-medium">Bachelor's Degree - Honours</td>
+                                    <td class="p-5"><span class="bg-gray-800 px-3 py-1 rounded-md border border-gray-700">160-176</span></td>
+                                    <td class="p-5 text-gray-400">4 Years, 8 Semesters</td>
+                                </tr>
+                                <tr class="hover:bg-white/5 transition-colors group">
+                                    <td class="p-5 font-mono text-brand-accent group-hover:text-white">6.0</td>
+                                    <td class="p-5 font-medium">Bachelor's Degree – Research</td>
+                                    <td class="p-5"><span class="bg-gray-800 px-3 py-1 rounded-md border border-gray-700">160-176</span></td>
+                                    <td class="p-5 text-gray-400">4 Years, 8 Semesters</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- BSc IT Info & Tables -->
+                <div id="tab-bsc" class="tab-content hidden p-6 md:p-10">
+                    <div class="mb-8 flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-gray-800 pb-8">
+                        <div>
+                            <h4 class="text-3xl font-bold text-white mb-2">B.Sc. Information Technology</h4>
+                            <p class="text-brand-purpleLight text-sm font-mono flex items-center gap-2">
+                                <i class="fas fa-calendar-alt"></i> Implementation: 2025-26 <span class="text-gray-600">|</span> Choice Based Credit System
+                            </p>
+                        </div>
+                        <!-- BSc Sub-Tabs -->
+                        <div class="flex flex-wrap items-center justify-center md:justify-start gap-3 bg-brand-dark/50 p-2 rounded-2xl border border-white/5 w-full md:w-auto">
+                            <button class="bsc-tab-btn active px-6 py-3 rounded-xl text-sm font-bold font-mono transition-all bg-brand-purple text-white shadow-[0_0_15px_rgba(139,92,246,0.3)] whitespace-nowrap" onclick="showBscTab('fy')">F.Y. BSc IT</button>
+                            <button class="bsc-tab-btn px-6 py-3 rounded-xl text-sm font-bold font-mono transition-all bg-transparent text-gray-400 hover:text-white hover:bg-white/5 whitespace-nowrap" onclick="showBscTab('sy')">S.Y. BSc IT</button>
+                            <button class="bsc-tab-btn px-6 py-3 rounded-xl text-sm font-bold font-mono transition-all bg-transparent text-gray-400 hover:text-white hover:bg-white/5 whitespace-nowrap" onclick="showBscTab('ty')">T.Y. BSc IT</button>
+                        </div>
+                    </div>
+
+                    <!-- F.Y. B.Sc. IT -->
+                    <div id="bsc-tab-fy" class="bsc-tab-content block animate-fade-in-up">
+                        <div class="grid lg:grid-cols-2 gap-8">
+                            <!-- Sem 1 -->
+                            <div class="bg-brand-card/50 border border-gray-800 rounded-2xl overflow-hidden">
+                                <div class="bg-gradient-to-r from-gray-900 to-gray-800 px-6 py-4 border-b border-gray-800 flex justify-between items-center">
+                                    <h5 class="font-bold text-white text-lg">Semester I</h5>
+                                    <span class="text-xs font-mono text-brand-purpleLight px-2 py-1 bg-brand-purple/10 rounded border border-brand-purple/20">Foundational</span>
+                                </div>
+                                <div class="p-6 space-y-6">
+                                    <!-- Module Group -->
+                                    <div>
+                                        <div class="text-xs text-gray-500 uppercase tracking-wider mb-3 font-bold flex items-center gap-2"><i class="fas fa-star text-brand-purple"></i> Major Courses</div>
+                                        <div class="space-y-2">
+                                            <div class="flex items-center justify-between p-3 rounded-xl bg-gray-900/60 border border-white/5 hover:border-brand-purple/30 transition-all group">
+                                                <div class="flex items-center gap-3">
+                                                    <div class="w-8 h-8 rounded-lg bg-gray-800 flex items-center justify-center text-gray-400 group-hover:text-brand-purpleLight transition-colors"><i class="fas fa-code"></i></div>
+                                                    <span class="text-sm font-medium text-gray-200">Intro to C++ Programming</span>
+                                                </div>
+                                                <span class="px-2 py-1 rounded text-xs font-mono bg-brand-purple/10 text-brand-accent border border-brand-purple/20">04 Cr</span>
+                                            </div>
+                                            <div class="flex items-center justify-between p-3 rounded-xl bg-gray-900/60 border border-white/5 hover:border-brand-purple/30 transition-all group">
+                                                <div class="flex items-center gap-3">
+                                                    <div class="w-8 h-8 rounded-lg bg-gray-800 flex items-center justify-center text-gray-400 group-hover:text-brand-purpleLight transition-colors"><i class="fas fa-microchip"></i></div>
+                                                    <span class="text-sm font-medium text-gray-200">Operating Systems</span>
+                                                </div>
+                                                <span class="px-2 py-1 rounded text-xs font-mono bg-brand-purple/10 text-brand-accent border border-brand-purple/20">02 Cr</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Module Group -->
+                                    <div>
+                                        <div class="text-xs text-gray-500 uppercase tracking-wider mb-3 font-bold flex items-center gap-2"><i class="fas fa-layer-group text-blue-400"></i> Open Electives (Choose 1)</div>
+                                        <div class="flex flex-wrap gap-2">
+                                            <span class="text-xs px-3 py-1.5 rounded-lg bg-gray-900 border border-gray-700 text-gray-300 hover:border-blue-500/50 hover:bg-blue-500/10 transition-colors cursor-default">Content Writing (AI Tool)</span>
+                                            <span class="text-xs px-3 py-1.5 rounded-lg bg-gray-900 border border-gray-700 text-gray-300 hover:border-blue-500/50 hover:bg-blue-500/10 transition-colors cursor-default">Ecommerce</span>
+                                        </div>
+                                    </div>
+
+                                    <!-- Module Group -->
+                                    <div>
+                                        <div class="text-xs text-gray-500 uppercase tracking-wider mb-3 font-bold flex items-center gap-2"><i class="fas fa-tools text-green-400"></i> VSC / SEC Courses</div>
+                                        <div class="space-y-2">
+                                            <div class="flex items-center justify-between p-3 rounded-xl bg-gray-900/60 border border-white/5 hover:border-green-500/30 transition-all">
+                                                <span class="text-sm font-medium text-gray-300">Discrete Mathematics <span class="text-gray-500 text-xs ml-1">(VSC)</span></span>
+                                                <span class="text-xs font-mono text-gray-400">02 Cr</span>
+                                            </div>
+                                            <div class="flex items-center justify-between p-3 rounded-xl bg-gray-900/60 border border-white/5 hover:border-green-500/30 transition-all">
+                                                <span class="text-sm font-medium text-gray-300">Intro to DBMS <span class="text-gray-500 text-xs ml-1">(SEC)</span></span>
+                                                <span class="text-xs font-mono text-gray-400">02 Cr</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Minor text list for the rest to save space but keep clean -->
+                                    <div class="pt-4 border-t border-gray-800">
+                                        <div class="text-xs text-gray-500 uppercase tracking-wider mb-3 font-bold">AEC, VEC & IKS (02 Cr each)</div>
+                                        <div class="grid grid-cols-1 gap-2 text-sm text-gray-400">
+                                            <div class="flex items-center gap-2"><i class="fas fa-check-circle text-gray-600 text-[10px]"></i> Comm. Skills in English</div>
+                                            <div class="flex items-center gap-2"><i class="fas fa-check-circle text-gray-600 text-[10px]"></i> Digital Electronics & Comm.</div>
+                                            <div class="flex items-center gap-2"><i class="fas fa-check-circle text-gray-600 text-[10px]"></i> Contribution to IT in Computing</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Sem 2 -->
+                            <div class="bg-brand-card/50 border border-gray-800 rounded-2xl overflow-hidden">
+                                <div class="bg-gradient-to-r from-gray-900 to-gray-800 px-6 py-4 border-b border-gray-800 flex justify-between items-center">
+                                    <h5 class="font-bold text-white text-lg">Semester II</h5>
+                                </div>
+                                <div class="p-6 space-y-6">
+                                    <!-- Major -->
+                                    <div>
+                                        <div class="text-xs text-gray-500 uppercase tracking-wider mb-3 font-bold flex items-center gap-2"><i class="fas fa-star text-brand-purple"></i> Major & Minor Courses</div>
+                                        <div class="space-y-2">
+                                            <div class="flex items-center justify-between p-3 rounded-xl bg-gray-900/60 border border-white/5 hover:border-brand-purple/30 transition-all group">
+                                                <div class="flex items-center gap-3">
+                                                    <div class="w-8 h-8 rounded-lg bg-gray-800 flex items-center justify-center text-gray-400 group-hover:text-brand-purpleLight transition-colors"><i class="fas fa-globe text-sm"></i></div>
+                                                    <span class="text-sm font-medium text-gray-200">Web Designing</span>
+                                                </div>
+                                                <span class="px-2 py-1 rounded text-xs font-mono bg-brand-purple/10 text-brand-accent border border-brand-purple/20">04 Cr</span>
+                                            </div>
+                                            <div class="flex items-center justify-between p-3 rounded-xl bg-gray-900/60 border border-white/5 hover:border-brand-purple/30 transition-all group">
+                                                <div class="flex items-center gap-3">
+                                                    <div class="w-8 h-8 rounded-lg bg-gray-800 flex items-center justify-center text-gray-400 group-hover:text-brand-purpleLight transition-colors"><i class="fas fa-cube text-sm"></i></div>
+                                                    <span class="text-sm font-medium text-gray-200">OOP using C++</span>
+                                                </div>
+                                                <span class="px-2 py-1 rounded text-xs font-mono bg-brand-purple/10 text-brand-accent border border-brand-purple/20">02 Cr</span>
+                                            </div>
+                                            <div class="flex items-center justify-between p-3 rounded-xl bg-gray-900/60 border border-white/5 hover:border-gray-500 transition-all">
+                                                <span class="text-sm font-medium text-gray-400 ml-11">Computer Science Practical-I <span class="text-xs ml-1">(Minor)</span></span>
+                                                <span class="text-xs font-mono text-gray-500">02 Cr</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Electives -->
+                                    <div>
+                                        <div class="text-xs text-gray-500 uppercase tracking-wider mb-3 font-bold flex items-center gap-2"><i class="fas fa-layer-group text-blue-400"></i> Open Electives (Choose 1)</div>
+                                        <div class="flex flex-wrap gap-2">
+                                            <span class="text-xs px-3 py-1.5 rounded-lg bg-gray-900 border border-gray-700 text-gray-300 hover:border-blue-500/50 hover:bg-blue-500/10 transition-colors cursor-default">Digital Marketing</span>
+                                            <span class="text-xs px-3 py-1.5 rounded-lg bg-gray-900 border border-gray-700 text-gray-300 hover:border-blue-500/50 hover:bg-blue-500/10 transition-colors cursor-default">Sustainable Development</span>
+                                        </div>
+                                    </div>
+
+                                    <!-- VSC/SEC -->
+                                    <div>
+                                        <div class="text-xs text-gray-500 uppercase tracking-wider mb-3 font-bold flex items-center gap-2"><i class="fas fa-tools text-green-400"></i> VSC / SEC Courses</div>
+                                        <div class="space-y-2">
+                                            <div class="flex items-center justify-between p-3 rounded-xl bg-gray-900/60 border border-white/5 hover:border-green-500/30 transition-all">
+                                                <span class="text-sm font-medium text-gray-300">Statistical Techniques <span class="text-gray-500 text-xs ml-1">(VSC)</span></span>
+                                                <span class="text-xs font-mono text-gray-400">02 Cr</span>
+                                            </div>
+                                            <div class="flex items-center justify-between p-3 rounded-xl bg-gray-900/60 border border-white/5 hover:border-green-500/30 transition-all">
+                                                <span class="text-sm font-medium text-gray-300">Microprocessor Architecture <span class="text-gray-500 text-xs ml-1">(SEC)</span></span>
+                                                <span class="text-xs font-mono text-gray-400">02 Cr</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="pt-4 border-t border-gray-800">
+                                        <div class="text-xs text-gray-500 uppercase tracking-wider mb-3 font-bold">AEC & VEC (02 Cr each)</div>
+                                        <div class="grid grid-cols-1 gap-2 text-sm text-gray-400">
+                                            <div class="flex items-center gap-2"><i class="fas fa-check-circle text-gray-600 text-[10px]"></i> Technical Comm. Skills</div>
+                                            <div class="flex items-center gap-2"><i class="fas fa-check-circle text-gray-600 text-[10px]"></i> Data Structure</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- FY Co-Curricular & Exit -->
+                        <div class="mt-8 bg-gray-900/50 border border-gray-800 rounded-2xl p-6">
+                            <h5 class="text-sm font-bold text-white mb-4 uppercase tracking-wider">Co-curricular Courses (CC) - 02 Credits</h5>
+                            <div class="flex flex-wrap gap-2.5 mb-6">
+                                <span class="text-xs px-3 py-1 rounded-full bg-gray-800 text-gray-300 border border-gray-700">Health & Wellness</span>
+                                <span class="text-xs px-3 py-1 rounded-full bg-gray-800 text-gray-300 border border-gray-700">Yoga</span>
+                                <span class="text-xs px-3 py-1 rounded-full bg-gray-800 text-gray-300 border border-gray-700">Sports & Fitness</span>
+                                <span class="text-xs px-3 py-1 rounded-full bg-gray-800 text-gray-300 border border-gray-700">Cultural Activities</span>
+                                <span class="text-xs px-3 py-1 rounded-full bg-gray-800 text-gray-300 border border-gray-700">NSS/NCC/DLLE</span>
+                                <span class="text-xs px-3 py-1 rounded-full bg-gray-800 text-gray-300 border border-gray-700">Fine/Applied Arts</span>
+                            </div>
+                            <div class="bg-gradient-to-r from-amber-900/30 to-amber-700/10 border border-amber-700/30 p-4 rounded-xl text-sm text-amber-200/80 font-medium flex items-start gap-3">
+                                <i class="fas fa-info-circle mt-1 text-amber-500"></i>
+                                <p><strong>Exit Option:</strong> Award of UG Certificate in Major with 40-44 credits and an additional 4 credits core NSQF course/Internship OR Continue with Major and Minor.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- S.Y. B.Sc. IT -->
+                    <div id="bsc-tab-sy" class="bsc-tab-content hidden animate-fade-in-up">
+                        <div class="grid lg:grid-cols-2 gap-8">
+                            <!-- Sem 3 -->
+                            <div class="bg-brand-card/50 border border-gray-800 rounded-2xl overflow-hidden">
+                                <div class="bg-gradient-to-r from-gray-900 to-gray-800 px-6 py-4 border-b border-gray-800">
+                                    <h5 class="font-bold text-white text-lg">Semester III</h5>
+                                </div>
+                                <div class="p-6 space-y-6">
+                                    <div>
+                                        <div class="text-xs text-gray-500 uppercase tracking-wider mb-3 font-bold flex items-center gap-2"><i class="fas fa-star text-brand-purple"></i> Major & Minor</div>
+                                        <div class="space-y-2">
+                                            <div class="flex items-center justify-between p-3 rounded-xl bg-gray-900/60 border border-white/5 hover:border-brand-purple/30 transition-all group">
+                                                <div class="flex items-center gap-3">
+                                                    <div class="w-8 h-8 rounded-lg bg-gray-800 flex items-center justify-center text-gray-400 group-hover:text-brand-purpleLight transition-colors"><i class="fas fa-network-wired text-sm"></i></div>
+                                                    <span class="text-sm font-medium text-gray-200">Computer Network</span>
+                                                </div>
+                                                <span class="px-2 py-1 rounded text-xs font-mono bg-brand-purple/10 text-brand-accent border border-brand-purple/20">04 Cr</span>
+                                            </div>
+                                            <div class="flex items-center justify-between p-3 rounded-xl bg-gray-900/60 border border-white/5 hover:border-brand-purple/30 transition-all group">
+                                                <div class="flex items-center gap-3">
+                                                    <div class="w-8 h-8 rounded-lg bg-gray-800 flex items-center justify-center text-gray-400 group-hover:text-brand-purpleLight transition-colors"><i class="fab fa-java text-lg"></i></div>
+                                                    <span class="text-sm font-medium text-gray-200">Core Java</span>
+                                                </div>
+                                                <span class="px-2 py-1 rounded text-xs font-mono bg-brand-purple/10 text-brand-accent border border-brand-purple/20">04 Cr</span>
+                                            </div>
+                                            <div class="flex items-center justify-between p-3 rounded-xl bg-gray-900/60 border border-white/5 hover:border-gray-500 transition-all">
+                                                <span class="text-sm font-medium text-gray-400 ml-11">Internet of Things <span class="text-xs ml-1">(Minor)</span></span>
+                                                <span class="text-xs font-mono text-gray-500">04 Cr</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div>
+                                        <div class="text-xs text-gray-500 uppercase tracking-wider mb-3 font-bold flex items-center gap-2"><i class="fas fa-tools text-green-400"></i> VSC / SEC & Electives</div>
+                                        <div class="space-y-2">
+                                            <div class="flex items-center justify-between p-3 rounded-xl bg-gray-900/60 border border-white/5 hover:border-green-500/30 transition-all">
+                                                <span class="text-sm font-medium text-gray-300">Numerical Analysis <span class="text-gray-500 text-xs ml-1">(Elective)</span></span>
+                                                <span class="text-xs font-mono text-gray-400">02 Cr</span>
+                                            </div>
+                                            <div class="flex items-center justify-between p-3 rounded-xl bg-gray-900/60 border border-white/5 hover:border-green-500/30 transition-all">
+                                                <span class="text-sm font-medium text-gray-300">Business Data Proc. <span class="text-gray-500 text-xs ml-1">(VSC)</span></span>
+                                                <span class="text-xs font-mono text-gray-400">02 Cr</span>
+                                            </div>
+                                            <div class="flex items-center justify-between p-3 rounded-xl bg-gray-900/60 border border-white/5 hover:border-green-500/30 transition-all">
+                                                <span class="text-sm font-medium text-gray-300">JavaScript <span class="text-gray-500 text-xs ml-1">(SEC)</span></span>
+                                                <span class="text-xs font-mono text-gray-400">02 Cr</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="pt-4 border-t border-gray-800">
+                                        <div class="text-xs text-gray-500 uppercase tracking-wider mb-2 font-bold">AEC & Co-curricular</div>
+                                        <div class="text-sm text-gray-400 space-y-1">
+                                            <p>• Language (Hindi/Marathi/Sindhi) - <span class="font-mono text-xs">02 Cr</span></p>
+                                            <p>• Co-curricular Courses (CC) - <span class="font-mono text-xs">02 Cr</span></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Sem 4 -->
+                            <div class="bg-brand-card/50 border border-gray-800 rounded-2xl overflow-hidden">
+                                <div class="bg-gradient-to-r from-gray-900 to-gray-800 px-6 py-4 border-b border-gray-800">
+                                    <h5 class="font-bold text-white text-lg">Semester IV</h5>
+                                </div>
+                                <div class="p-6 space-y-6">
+                                    <div>
+                                        <div class="text-xs text-gray-500 uppercase tracking-wider mb-3 font-bold flex items-center gap-2"><i class="fas fa-star text-brand-purple"></i> Major & Minor</div>
+                                        <div class="space-y-2">
+                                            <div class="flex items-center justify-between p-3 rounded-xl bg-gray-900/60 border border-white/5 hover:border-brand-purple/30 transition-all group">
+                                                <div class="flex items-center gap-3">
+                                                    <div class="w-8 h-8 rounded-lg bg-gray-800 flex items-center justify-center text-gray-400 group-hover:text-brand-purpleLight transition-colors"><i class="fas fa-window-maximize text-sm"></i></div>
+                                                    <span class="text-sm font-medium text-gray-200">Web Prog. & Hosting</span>
+                                                </div>
+                                                <span class="px-2 py-1 rounded text-xs font-mono bg-brand-purple/10 text-brand-accent border border-brand-purple/20">04 Cr</span>
+                                            </div>
+                                            <div class="flex items-center justify-between p-3 rounded-xl bg-gray-900/60 border border-white/5 hover:border-brand-purple/30 transition-all group">
+                                                <div class="flex items-center gap-3">
+                                                    <div class="w-8 h-8 rounded-lg bg-gray-800 flex items-center justify-center text-gray-400 group-hover:text-brand-purpleLight transition-colors"><i class="fas fa-cogs text-sm"></i></div>
+                                                    <span class="text-sm font-medium text-gray-200">Software Engineering</span>
+                                                </div>
+                                                <span class="px-2 py-1 rounded text-xs font-mono bg-brand-purple/10 text-brand-accent border border-brand-purple/20">04 Cr</span>
+                                            </div>
+                                            <div class="flex items-center justify-between p-3 rounded-xl bg-gray-900/60 border border-white/5 hover:border-gray-500 transition-all">
+                                                <span class="text-sm font-medium text-gray-400 ml-11">Python Programming <span class="text-xs ml-1">(Minor)</span></span>
+                                                <span class="text-xs font-mono text-gray-500">04 Cr</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div>
+                                        <div class="text-xs text-gray-500 uppercase tracking-wider mb-3 font-bold flex items-center gap-2"><i class="fas fa-tools text-green-400"></i> VSC & Electives</div>
+                                        <div class="space-y-2">
+                                            <div class="flex items-center justify-between p-3 rounded-xl bg-gray-900/60 border border-white/5 hover:border-green-500/30 transition-all">
+                                                <span class="text-sm font-medium text-gray-300">Cyber Law <span class="text-gray-500 text-xs ml-1">(Elective)</span></span>
+                                                <span class="text-xs font-mono text-gray-400">02 Cr</span>
+                                            </div>
+                                            <div class="flex items-center justify-between p-3 rounded-xl bg-gray-900/60 border border-white/5 hover:border-green-500/30 transition-all">
+                                                <span class="text-sm font-medium text-gray-300">Computer Graphics <span class="text-gray-500 text-xs ml-1">(VSC)</span></span>
+                                                <span class="text-xs font-mono text-gray-400">02 Cr</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="pt-4 border-t border-gray-800">
+                                        <div class="text-xs text-gray-500 uppercase tracking-wider mb-2 font-bold">Project & Co-curricular</div>
+                                        <div class="text-sm text-gray-400 space-y-1">
+                                            <p>• Language (Hindi/Marathi/Sindhi) - <span class="font-mono text-xs">02 Cr</span></p>
+                                            <p>• Field Project / Mini Project - <span class="font-mono text-xs">02 Cr</span></p>
+                                            <p>• Co-curricular Courses (CC) - <span class="font-mono text-xs">02 Cr</span></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- T.Y. B.Sc. IT -->
+                    <div id="bsc-tab-ty" class="bsc-tab-content hidden animate-fade-in-up">
+                        <div class="grid lg:grid-cols-2 gap-8">
+                            <!-- Sem 5 -->
+                            <div class="bg-brand-card/50 border border-gray-800 rounded-2xl overflow-hidden">
+                                <div class="bg-gradient-to-r from-gray-900 to-gray-800 px-6 py-4 border-b border-gray-800 flex justify-between items-center">
+                                    <h5 class="font-bold text-white text-lg">Semester V</h5>
+                                    <span class="text-xs font-bold font-mono text-white px-2 py-1 bg-gray-800 rounded">22 Credits</span>
+                                </div>
+                                <div class="p-6 space-y-6">
+                                    <div>
+                                        <div class="text-xs text-gray-500 uppercase tracking-wider mb-3 font-bold flex items-center gap-2"><i class="fas fa-star text-brand-purple"></i> Major Courses</div>
+                                        <div class="space-y-2">
+                                            <div class="flex items-center justify-between p-3 rounded-xl bg-gray-900/60 border border-white/5 hover:border-brand-purple/30 transition-all group">
+                                                <div class="flex items-center gap-3">
+                                                    <div class="w-8 h-8 rounded-lg bg-gray-800 flex items-center justify-center text-gray-400 group-hover:text-brand-purpleLight transition-colors"><i class="fas fa-server text-sm"></i></div>
+                                                    <span class="text-sm font-medium text-gray-200">ASP.Net</span>
+                                                </div>
+                                                <span class="px-2 py-1 rounded text-xs font-mono bg-brand-purple/10 text-brand-accent border border-brand-purple/20">04 Cr</span>
+                                            </div>
+                                            <div class="flex items-center justify-between p-3 rounded-xl bg-gray-900/60 border border-white/5 hover:border-brand-purple/30 transition-all group">
+                                                <div class="flex items-center gap-3">
+                                                    <div class="w-8 h-8 rounded-lg bg-gray-800 flex items-center justify-center text-gray-400 group-hover:text-brand-purpleLight transition-colors"><i class="fab fa-react text-sm"></i></div>
+                                                    <span class="text-sm font-medium text-gray-200">ReactJS</span>
+                                                </div>
+                                                <span class="px-2 py-1 rounded text-xs font-mono bg-brand-purple/10 text-brand-accent border border-brand-purple/20">04 Cr</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div>
+                                        <div class="text-xs text-gray-500 uppercase tracking-wider mb-3 font-bold flex items-center gap-2"><i class="fas fa-code-branch text-blue-400"></i> Major Electives (Choose 1)</div>
+                                        <div class="flex flex-col gap-2">
+                                            <label class="flex items-center gap-3 p-2.5 rounded-lg border border-gray-800 hover:bg-gray-800/50 cursor-pointer transition-colors">
+                                                <input type="radio" name="elec5" class="accent-brand-purple" checked>
+                                                <span class="text-sm text-gray-300">Linux System Administration</span>
+                                            </label>
+                                            <label class="flex items-center gap-3 p-2.5 rounded-lg border border-gray-800 hover:bg-gray-800/50 cursor-pointer transition-colors">
+                                                <input type="radio" name="elec5" class="accent-brand-purple">
+                                                <span class="text-sm text-gray-300">Information Security</span>
+                                            </label>
+                                            <label class="flex items-center gap-3 p-2.5 rounded-lg border border-gray-800 hover:bg-gray-800/50 cursor-pointer transition-colors">
+                                                <input type="radio" name="elec5" class="accent-brand-purple">
+                                                <span class="text-sm text-gray-300">Cryptography & Network Sec</span>
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div>
+                                        <div class="text-xs text-gray-500 uppercase tracking-wider mb-3 font-bold">Minor & VSC</div>
+                                        <div class="space-y-2">
+                                            <div class="flex justify-between items-center text-sm text-gray-300 border-b border-gray-800 pb-2">
+                                                <span>Project Management (Minor)</span> <span class="font-mono text-xs text-gray-500">04 Cr</span>
+                                            </div>
+                                            <div class="flex justify-between items-center text-sm text-gray-300 border-b border-gray-800 pb-2">
+                                                <span>Mobile App Dev (VSC)</span> <span class="font-mono text-xs text-gray-500">02 Cr</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div>
+                                        <div class="text-xs text-gray-500 uppercase tracking-wider mb-2 font-bold">Project Work</div>
+                                        <div class="text-sm text-gray-400 space-y-1">
+                                            <p>• Project Dissertation / Mini Project - <span class="font-mono text-xs">02 Cr</span></p>
+                                            <p>• Field Project - <span class="font-mono text-xs">02 Cr</span></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Sem 6 -->
+                            <div class="bg-brand-card/50 border border-gray-800 rounded-2xl overflow-hidden">
+                                <div class="bg-gradient-to-r from-gray-900 to-gray-800 px-6 py-4 border-b border-gray-800 flex justify-between items-center">
+                                    <h5 class="font-bold text-white text-lg">Semester VI</h5>
+                                    <span class="text-xs font-bold font-mono text-white px-2 py-1 bg-gray-800 rounded">22 Credits</span>
+                                </div>
+                                <div class="p-6 space-y-6">
+                                    <div>
+                                        <div class="text-xs text-gray-500 uppercase tracking-wider mb-3 font-bold flex items-center gap-2"><i class="fas fa-star text-brand-purple"></i> Major Courses</div>
+                                        <div class="space-y-2">
+                                            <div class="flex items-center justify-between p-3 rounded-xl bg-gray-900/60 border border-white/5 hover:border-brand-purple/30 transition-all group">
+                                                <div class="flex items-center gap-3">
+                                                    <div class="w-8 h-8 rounded-lg bg-gray-800 flex items-center justify-center text-gray-400 group-hover:text-brand-purpleLight transition-colors"><i class="fas fa-map-marked-alt text-sm"></i></div>
+                                                    <span class="text-sm font-medium text-gray-200">Geographical Info System</span>
+                                                </div>
+                                                <span class="px-2 py-1 rounded text-xs font-mono bg-brand-purple/10 text-brand-accent border border-brand-purple/20">04 Cr</span>
+                                            </div>
+                                            <div class="flex items-center justify-between p-3 rounded-xl bg-gray-900/60 border border-white/5 hover:border-brand-purple/30 transition-all group">
+                                                <div class="flex items-center gap-3">
+                                                    <div class="w-8 h-8 rounded-lg bg-gray-800 flex items-center justify-center text-gray-400 group-hover:text-brand-purpleLight transition-colors"><i class="fas fa-cloud text-sm"></i></div>
+                                                    <span class="text-sm font-medium text-gray-200">Cloud Computing</span>
+                                                </div>
+                                                <span class="px-2 py-1 rounded text-xs font-mono bg-brand-purple/10 text-brand-accent border border-brand-purple/20">04 Cr</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div>
+                                        <div class="text-xs text-gray-500 uppercase tracking-wider mb-3 font-bold flex items-center gap-2"><i class="fas fa-code-branch text-blue-400"></i> Major Electives (Choose 1)</div>
+                                        <div class="flex flex-col gap-2">
+                                            <label class="flex items-center gap-3 p-2.5 rounded-lg border border-gray-800 hover:bg-gray-800/50 cursor-pointer transition-colors">
+                                                <input type="radio" name="elec6" class="accent-brand-purple" checked>
+                                                <span class="text-sm text-gray-300">Data Mining</span>
+                                            </label>
+                                            <label class="flex items-center gap-3 p-2.5 rounded-lg border border-gray-800 hover:bg-gray-800/50 cursor-pointer transition-colors">
+                                                <input type="radio" name="elec6" class="accent-brand-purple">
+                                                <span class="text-sm text-gray-300">AI & Machine Learning</span>
+                                            </label>
+                                            <label class="flex items-center gap-3 p-2.5 rounded-lg border border-gray-800 hover:bg-gray-800/50 cursor-pointer transition-colors">
+                                                <input type="radio" name="elec6" class="accent-brand-purple">
+                                                <span class="text-sm text-gray-300">Cyber Security</span>
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div>
+                                        <div class="text-xs text-gray-500 uppercase tracking-wider mb-3 font-bold">Minor Courses</div>
+                                        <div class="space-y-2">
+                                            <div class="flex justify-between items-center text-sm text-gray-300 border-b border-gray-800 pb-2">
+                                                <span>Software Quality Assurance</span> <span class="font-mono text-xs text-gray-500">04 Cr</span>
+                                            </div>
+                                            <div class="flex justify-between items-center text-sm text-gray-300 border-b border-gray-800 pb-2">
+                                                <span>Robotic Process Automation</span> <span class="font-mono text-xs text-gray-500">02 Cr</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div>
+                                        <div class="text-xs text-gray-500 uppercase tracking-wider mb-2 font-bold">OJT / Training</div>
+                                        <div class="text-sm text-gray-400 space-y-1">
+                                            <p>• Research Proj. / Implementation - <span class="font-mono text-xs">04 Cr</span></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Exit Clause -->
+                        <div class="mt-8 bg-gradient-to-r from-brand-purpleDark/30 to-brand-purple/10 border border-brand-purple/30 p-5 rounded-2xl flex items-start gap-4 shadow-lg">
+                            <div class="w-10 h-10 rounded-full bg-brand-purple/20 flex items-center justify-center shrink-0 mt-1">
+                                <i class="fas fa-graduation-cap text-brand-purpleLight text-lg"></i>
+                            </div>
+                            <div>
+                                <h5 class="text-white font-bold mb-1">Final Exit Option</h5>
+                                <p class="text-sm text-gray-300 leading-relaxed">Award of UG Degree: Bachelor of Science in Information Technology with 120-132 credits and an additional 4 credits core NSQF course / Internship OR Continue with Major and Minor.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MSc IT Table -->
+                <div id="tab-msc" class="tab-content hidden p-6 md:p-10">
+                    <div class="mb-8 border-b border-gray-800 pb-6">
+                        <h4 class="text-3xl font-bold text-white mb-2">M.Sc. Information Technology</h4>
+                        <p class="text-brand-purpleLight text-sm font-mono">Implementation Year: 2025-26 | CBCS System</p>
+                    </div>
+                    
+                    <div class="grid lg:grid-cols-2 gap-8">
+                        <!-- Sem 1 -->
+                        <div class="bg-brand-card/50 border border-gray-800 rounded-2xl overflow-hidden">
+                            <div class="bg-gradient-to-r from-brand-purpleDark/50 to-gray-800 px-6 py-4 border-b border-brand-purple/30 flex justify-between items-center">
+                                <h5 class="font-bold text-white text-lg">Semester I</h5>
+                                <span class="text-xs font-bold font-mono text-white px-2 py-1 bg-brand-purple/20 rounded">22 Credits</span>
+                            </div>
+                            <div class="p-6 space-y-6">
+                                <div>
+                                    <div class="text-xs text-gray-500 uppercase tracking-wider mb-3 font-bold flex items-center gap-2"><i class="fas fa-star text-brand-purple"></i> Major Courses</div>
+                                    <div class="space-y-2">
+                                        <div class="flex items-center justify-between p-3 rounded-xl bg-gray-900/60 border border-white/5 transition-all">
+                                            <span class="text-sm font-medium text-gray-200">Robotic and Soft Computing</span>
+                                            <span class="px-2 py-1 rounded text-xs font-mono bg-brand-purple/10 text-brand-accent">04 Cr</span>
+                                        </div>
+                                        <div class="flex items-center justify-between p-3 rounded-xl bg-gray-900/60 border border-white/5 transition-all">
+                                            <span class="text-sm font-medium text-gray-200">Cyber Forensics</span>
+                                            <span class="px-2 py-1 rounded text-xs font-mono bg-brand-purple/10 text-brand-accent">04 Cr</span>
+                                        </div>
+                                        <div class="flex items-center justify-between p-3 rounded-xl bg-gray-900/60 border border-white/5 transition-all">
+                                            <span class="text-sm font-medium text-gray-200">Game Theory</span>
+                                            <span class="px-2 py-1 rounded text-xs font-mono bg-brand-purple/10 text-brand-accent">02 Cr</span>
+                                        </div>
+                                        <div class="flex items-center justify-between p-3 rounded-xl bg-gray-900/60 border border-white/5 transition-all">
+                                            <span class="text-sm font-medium text-gray-200">Big Data Analytics (Th + Pr)</span>
+                                            <span class="px-2 py-1 rounded text-xs font-mono bg-brand-purple/10 text-brand-accent">04 Cr</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div>
+                                    <div class="text-xs text-gray-500 uppercase tracking-wider mb-3 font-bold flex items-center gap-2"><i class="fas fa-code-branch text-blue-400"></i> Major Elective (Choose 1)</div>
+                                    <div class="flex flex-col gap-2">
+                                        <label class="flex items-center gap-3 p-2.5 rounded-lg border border-gray-800 hover:bg-gray-800/50 cursor-pointer">
+                                            <input type="radio" name="msc_elec1" class="accent-brand-purple" checked>
+                                            <span class="text-sm text-gray-300">Natural Language Processing</span>
+                                        </label>
+                                        <label class="flex items-center gap-3 p-2.5 rounded-lg border border-gray-800 hover:bg-gray-800/50 cursor-pointer">
+                                            <input type="radio" name="msc_elec1" class="accent-brand-purple">
+                                            <span class="text-sm text-gray-300">Image Processing</span>
+                                        </label>
+                                        <label class="flex items-center gap-3 p-2.5 rounded-lg border border-gray-800 hover:bg-gray-800/50 cursor-pointer">
+                                            <input type="radio" name="msc_elec1" class="accent-brand-purple">
+                                            <span class="text-sm text-gray-300">Data Centre Tech</span>
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <div class="text-xs text-gray-500 uppercase tracking-wider mb-2 font-bold">Research</div>
+                                    <div class="flex justify-between items-center text-sm text-gray-300 p-3 rounded-xl bg-gray-900/60 border border-white/5">
+                                        <span>Research Methodology</span> <span class="font-mono text-xs text-brand-accent">04 Cr</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Sem 2 -->
+                        <div class="bg-brand-card/50 border border-gray-800 rounded-2xl overflow-hidden">
+                            <div class="bg-gradient-to-r from-brand-purpleDark/50 to-gray-800 px-6 py-4 border-b border-brand-purple/30 flex justify-between items-center">
+                                <h5 class="font-bold text-white text-lg">Semester II</h5>
+                                <span class="text-xs font-bold font-mono text-white px-2 py-1 bg-brand-purple/20 rounded">22 Credits</span>
+                            </div>
+                            <div class="p-6 space-y-6">
+                                <div>
+                                    <div class="text-xs text-gray-500 uppercase tracking-wider mb-3 font-bold flex items-center gap-2"><i class="fas fa-star text-brand-purple"></i> Major Courses</div>
+                                    <div class="space-y-2">
+                                        <div class="flex items-center justify-between p-3 rounded-xl bg-gray-900/60 border border-white/5 transition-all">
+                                            <span class="text-sm font-medium text-gray-200">Block Chain Technology</span>
+                                            <span class="px-2 py-1 rounded text-xs font-mono bg-brand-purple/10 text-brand-accent">04 Cr</span>
+                                        </div>
+                                        <div class="flex items-center justify-between p-3 rounded-xl bg-gray-900/60 border border-white/5 transition-all">
+                                            <span class="text-sm font-medium text-gray-200">Quantum Computing</span>
+                                            <span class="px-2 py-1 rounded text-xs font-mono bg-brand-purple/10 text-brand-accent">04 Cr</span>
+                                        </div>
+                                        <div class="flex items-center justify-between p-3 rounded-xl bg-gray-900/60 border border-white/5 transition-all">
+                                            <span class="text-sm font-medium text-gray-200">Advance A.I.</span>
+                                            <span class="px-2 py-1 rounded text-xs font-mono bg-brand-purple/10 text-brand-accent">02 Cr</span>
+                                        </div>
+                                        <div class="flex items-center justify-between p-3 rounded-xl bg-gray-900/60 border border-white/5 transition-all">
+                                            <span class="text-sm font-medium text-gray-200">Data Engineering & AR/VR</span>
+                                            <span class="px-2 py-1 rounded text-xs font-mono bg-brand-purple/10 text-brand-accent">04 Cr</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div>
+                                    <div class="text-xs text-gray-500 uppercase tracking-wider mb-3 font-bold flex items-center gap-2"><i class="fas fa-code-branch text-blue-400"></i> Major Elective (Choose 1)</div>
+                                    <div class="flex flex-col gap-2">
+                                        <label class="flex items-center gap-3 p-2.5 rounded-lg border border-gray-800 hover:bg-gray-800/50 cursor-pointer">
+                                            <input type="radio" name="msc_elec2" class="accent-brand-purple" checked>
+                                            <span class="text-sm text-gray-300">Computer Vision (PR)</span>
+                                        </label>
+                                        <label class="flex items-center gap-3 p-2.5 rounded-lg border border-gray-800 hover:bg-gray-800/50 cursor-pointer">
+                                            <input type="radio" name="msc_elec2" class="accent-brand-purple">
+                                            <span class="text-sm text-gray-300">Deep Learning</span>
+                                        </label>
+                                        <label class="flex items-center gap-3 p-2.5 rounded-lg border border-gray-800 hover:bg-gray-800/50 cursor-pointer">
+                                            <input type="radio" name="msc_elec2" class="accent-brand-purple">
+                                            <span class="text-sm text-gray-300">Malware Analysis</span>
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <div class="text-xs text-gray-500 uppercase tracking-wider mb-2 font-bold">Project</div>
+                                    <div class="flex justify-between items-center text-sm text-gray-300 p-3 rounded-xl bg-gray-900/60 border border-white/5">
+                                        <span>Field Project</span> <span class="font-mono text-xs text-brand-accent">04 Cr</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8 bg-gradient-to-r from-blue-900/20 to-brand-purpleDark/20 border border-blue-500/20 p-5 rounded-2xl flex items-start gap-4 shadow-lg">
+                        <div class="w-10 h-10 rounded-full bg-blue-500/20 flex items-center justify-center shrink-0 mt-1">
+                            <i class="fas fa-award text-blue-400 text-lg"></i>
+                        </div>
+                        <div>
+                            <h5 class="text-white font-bold mb-1">PG Diploma Exit</h5>
+                            <p class="text-sm text-gray-300 leading-relaxed">Award of PG Diploma in Information Technology with 44 credits after Three Year UG Degree.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Faculty Section -->
+    <section id="faculty" class="py-24 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 reveal">
+                <div class="inline-flex items-center gap-2 mb-3">
+                    <span class="h-px w-8 bg-brand-purple"></span>
+                    <h2 class="text-brand-purpleLight font-mono text-sm tracking-widest uppercase">Mentors & Experts</h2>
+                    <span class="h-px w-8 bg-brand-purple"></span>
+                </div>
+                <h3 class="text-3xl md:text-5xl font-extrabold text-white">Our Esteemed Faculty</h3>
+            </div>
+
+            <!-- Coordinator -->
+            <div class="max-w-md mx-auto mb-16 reveal">
+                <div class="glass-card rounded-3xl p-8 text-center hover-glow relative overflow-hidden border-t border-t-brand-purple">
+                    <div class="absolute top-4 right-4 bg-brand-purple/20 border border-brand-purple text-brand-purpleLight text-[10px] font-bold px-3 py-1.5 rounded-full uppercase tracking-wider">Coordinator</div>
+                    
+                    <div class="w-28 h-28 mx-auto mb-6 relative">
+                        <div class="absolute inset-0 bg-brand-purple rounded-full blur-lg opacity-40"></div>
+                        <img src="https://ui-avatars.com/api/?name=Mohammad+Nasir&background=1E1E2E&color=fff&size=150" alt="Dr. Ansari" class="w-full h-full rounded-full border-2 border-brand-purple shadow-2xl relative z-10">
+                    </div>
+                    
+                    <h4 class="text-2xl font-bold text-white">Dr. Ansari Mohammad Nasir</h4>
+                    <p class="text-brand-accent text-sm font-mono mt-2">Head Of Department</p>
+                    <div class="mt-4 pt-4 border-t border-gray-800">
+                        <p class="text-xs text-gray-400 font-bold uppercase tracking-widest">Course Coordinator</p>
+                        <p class="text-sm text-gray-300 mt-1">BSc.IT / MSc.IT</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Visiting Faculty Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                <!-- Dynamic cards with subtle gradient borders -->
+                <div class="glass p-6 rounded-2xl text-center border-l-2 border-l-transparent hover:border-l-brand-purple transition-all duration-300 hover:-translate-y-1 hover:bg-gray-900/60 reveal">
+                    <div class="w-14 h-14 mx-auto bg-gray-800 rounded-full flex items-center justify-center text-xl text-brand-purpleLight mb-4 shadow-inner">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <h5 class="font-bold text-gray-100 text-lg">Dr. Abuzar Ansari</h5>
+                    <p class="text-[11px] text-brand-purpleLight font-mono mt-1 mb-2 uppercase">Coordinator (M.Sc. DS)</p>
+                    <p class="text-xs text-gray-400">SIES College</p>
+                </div>
+                
+                <div class="glass p-6 rounded-2xl text-center border-l-2 border-l-transparent hover:border-l-brand-purple transition-all duration-300 hover:-translate-y-1 hover:bg-gray-900/60 reveal" style="transition-delay: 50ms;">
+                    <div class="w-14 h-14 mx-auto bg-gray-800 rounded-full flex items-center justify-center text-xl text-brand-purpleLight mb-4 shadow-inner">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <h5 class="font-bold text-gray-100 text-lg">Dr. Ahtesham Shaikh</h5>
+                    <p class="text-[11px] text-brand-purpleLight font-mono mt-1 mb-2 uppercase">Coordinator (B.Sc. IT)</p>
+                    <p class="text-xs text-gray-400">Akber Peerbhoy</p>
+                </div>
+
+                <div class="glass p-6 rounded-2xl text-center border-l-2 border-l-transparent hover:border-l-brand-purple transition-all duration-300 hover:-translate-y-1 hover:bg-gray-900/60 reveal" style="transition-delay: 100ms;">
+                    <div class="w-14 h-14 mx-auto bg-gray-800 rounded-full flex items-center justify-center text-xl text-gray-400 mb-4 shadow-inner">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                    </div>
+                    <h5 class="font-bold text-gray-100 text-lg">Prof. Shahid Pervez</h5>
+                    <p class="text-[11px] text-gray-500 font-mono mt-1 mb-2 uppercase">Visiting Faculty</p>
+                    <p class="text-xs text-gray-400">Akber Peerbhoy College</p>
+                </div>
+
+                <div class="glass p-6 rounded-2xl text-center border-l-2 border-l-transparent hover:border-l-brand-purple transition-all duration-300 hover:-translate-y-1 hover:bg-gray-900/60 reveal" style="transition-delay: 150ms;">
+                    <div class="w-14 h-14 mx-auto bg-gray-800 rounded-full flex items-center justify-center text-xl text-gray-400 mb-4 shadow-inner">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                    </div>
+                    <h5 class="font-bold text-gray-100 text-lg">Prof. Yaseera Nevrekar</h5>
+                    <p class="text-[11px] text-gray-500 font-mono mt-1 mb-2 uppercase">Visiting Faculty</p>
+                    <p class="text-xs text-gray-400">Maharashtra College</p>
+                </div>
+
+                <div class="glass p-6 rounded-2xl text-center border-l-2 border-l-transparent hover:border-l-brand-purple transition-all duration-300 hover:-translate-y-1 hover:bg-gray-900/60 reveal">
+                    <div class="w-14 h-14 mx-auto bg-gray-800 rounded-full flex items-center justify-center text-xl text-gray-400 mb-4 shadow-inner">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                    </div>
+                    <h5 class="font-bold text-gray-100 text-lg">Prof. Sabir Shaikh</h5>
+                    <p class="text-[11px] text-gray-500 font-mono mt-1 mb-2 uppercase">Visiting Faculty</p>
+                    <p class="text-xs text-gray-400">Vidyalankar Institute (VIIT)</p>
+                </div>
+
+                <div class="glass p-6 rounded-2xl text-center border-l-2 border-l-transparent hover:border-l-brand-purple transition-all duration-300 hover:-translate-y-1 hover:bg-gray-900/60 reveal" style="transition-delay: 50ms;">
+                    <div class="w-14 h-14 mx-auto bg-gray-800 rounded-full flex items-center justify-center text-xl text-gray-400 mb-4 shadow-inner">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h5 class="font-bold text-gray-100 text-lg">Miss Pooja Mallha</h5>
+                    <p class="text-[11px] text-gray-500 font-mono mt-1 mb-2 uppercase">Visiting Faculty</p>
+                    <p class="text-xs text-gray-400">Industry Expert</p>
+                </div>
+
+                <div class="glass p-6 rounded-2xl text-center border-l-2 border-l-transparent hover:border-l-brand-purple transition-all duration-300 hover:-translate-y-1 hover:bg-gray-900/60 reveal" style="transition-delay: 100ms;">
+                    <div class="w-14 h-14 mx-auto bg-gray-800 rounded-full flex items-center justify-center text-xl text-gray-400 mb-4 shadow-inner">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h5 class="font-bold text-gray-100 text-lg">Prof. Rajiv Nadkarni</h5>
+                    <p class="text-[11px] text-gray-500 font-mono mt-1 mb-2 uppercase">Visiting Faculty</p>
+                    <p class="text-xs text-gray-400">Industry Expert</p>
+                </div>
+
+                <div class="glass p-6 rounded-2xl text-center border-l-2 border-l-transparent hover:border-l-brand-purple transition-all duration-300 hover:-translate-y-1 hover:bg-gray-900/60 reveal" style="transition-delay: 150ms;">
+                    <div class="w-14 h-14 mx-auto bg-gray-800 rounded-full flex items-center justify-center text-xl text-gray-400 mb-4 shadow-inner">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                    </div>
+                    <h5 class="font-bold text-gray-100 text-lg">Prof. Azra Khan</h5>
+                    <p class="text-[11px] text-gray-500 font-mono mt-1 mb-2 uppercase">Visiting Faculty</p>
+                    <p class="text-xs text-gray-400">Industry Expert</p>
+                </div>
+                
+                <div class="glass p-6 rounded-2xl text-center border-l-2 border-l-transparent hover:border-l-brand-purple transition-all duration-300 hover:-translate-y-1 hover:bg-gray-900/60 reveal lg:col-start-2">
+                    <div class="w-14 h-14 mx-auto bg-gray-800 rounded-full flex items-center justify-center text-xl text-gray-400 mb-4 shadow-inner">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                    </div>
+                    <h5 class="font-bold text-gray-100 text-lg">Prof. Waseem Sayed</h5>
+                    <p class="text-[11px] text-gray-500 font-mono mt-1 mb-2 uppercase">Visiting Faculty</p>
+                    <p class="text-xs text-gray-400">Industry Expert</p>
+                </div>
+
+                <div class="glass p-6 rounded-2xl text-center border-l-2 border-l-transparent hover:border-l-brand-purple transition-all duration-300 hover:-translate-y-1 hover:bg-gray-900/60 reveal lg:col-start-3">
+                    <div class="w-14 h-14 mx-auto bg-gray-800 rounded-full flex items-center justify-center text-xl text-blue-400 mb-4 shadow-inner">
+                        <i class="fas fa-code-branch"></i>
+                    </div>
+                    <h5 class="font-bold text-gray-100 text-lg">Prof. Asad Khan</h5>
+                    <p class="text-[11px] text-blue-400/80 font-mono mt-1 mb-2 uppercase">Software Developer</p>
+                    <p class="text-xs text-gray-400">Spenta Multimedia Pvt. Ltd.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Events Gallery -->
+    <section id="events" class="py-24 relative bg-black/40 border-y border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-12 reveal">
+                <div>
+                    <div class="inline-flex items-center gap-2 mb-3">
+                        <span class="h-px w-8 bg-brand-purple"></span>
+                        <h2 class="text-brand-purpleLight font-mono text-sm tracking-widest uppercase">Life at Hinduja</h2>
+                    </div>
+                    <h3 class="text-3xl md:text-5xl font-extrabold text-white">Tech Events & Gallery</h3>
+                </div>
+                <button class="mt-6 md:mt-0 px-6 py-2 rounded-full border border-gray-700 text-sm font-mono text-gray-300 hover:text-white hover:border-brand-purple hover:bg-brand-purple/10 transition-all flex items-center gap-2">
+                    View All Gallery <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="group relative rounded-3xl overflow-hidden reveal border border-gray-800/60 h-80 shadow-lg cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Tech Seminar" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/60 to-transparent opacity-90 group-hover:opacity-80 transition-opacity duration-500"></div>
+                    <div class="absolute inset-0 bg-brand-purple/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 mix-blend-overlay"></div>
+                    
+                    <div class="absolute bottom-0 left-0 p-8 w-full transform translate-y-6 group-hover:translate-y-0 transition-transform duration-500 ease-out">
+                        <div class="flex items-center gap-3 mb-4">
+                            <span class="px-3 py-1 bg-brand-purple text-white text-[10px] font-bold uppercase tracking-wider rounded-full shadow-lg">Seminar</span>
+                            <span class="text-xs font-mono text-gray-400"><i class="far fa-clock mr-1"></i> Oct 2025</span>
+                        </div>
+                        <h4 class="text-2xl font-bold text-white mb-2">AI & Future Tech</h4>
+                        <p class="text-sm text-gray-300 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100 line-clamp-2">Guest lecture by industry experts discussing the latest trends in Machine Learning.</p>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="group relative rounded-3xl overflow-hidden reveal border border-gray-800/60 h-80 shadow-lg cursor-pointer" style="transition-delay: 100ms;">
+                    <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Hackathon" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/60 to-transparent opacity-90 group-hover:opacity-80 transition-opacity duration-500"></div>
+                    <div class="absolute inset-0 bg-pink-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 mix-blend-overlay"></div>
+                    
+                    <div class="absolute bottom-0 left-0 p-8 w-full transform translate-y-6 group-hover:translate-y-0 transition-transform duration-500 ease-out">
+                        <div class="flex items-center gap-3 mb-4">
+                            <span class="px-3 py-1 bg-pink-600 text-white text-[10px] font-bold uppercase tracking-wider rounded-full shadow-lg">Hackathon</span>
+                            <span class="text-xs font-mono text-gray-400"><i class="far fa-clock mr-1"></i> Dec 2025</span>
+                        </div>
+                        <h4 class="text-2xl font-bold text-white mb-2">CodeFest 2025</h4>
+                        <p class="text-sm text-gray-300 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100 line-clamp-2">A 24-hour intense coding marathon where students built decentralized applications.</p>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="group relative rounded-3xl overflow-hidden reveal border border-gray-800/60 h-80 shadow-lg cursor-pointer" style="transition-delay: 200ms;">
+                    <img src="https://images.unsplash.com/photo-1515187029135-18ee286d815b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Workshop" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/60 to-transparent opacity-90 group-hover:opacity-80 transition-opacity duration-500"></div>
+                    <div class="absolute inset-0 bg-blue-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 mix-blend-overlay"></div>
+                    
+                    <div class="absolute bottom-0 left-0 p-8 w-full transform translate-y-6 group-hover:translate-y-0 transition-transform duration-500 ease-out">
+                        <div class="flex items-center gap-3 mb-4">
+                            <span class="px-3 py-1 bg-blue-600 text-white text-[10px] font-bold uppercase tracking-wider rounded-full shadow-lg">Workshop</span>
+                            <span class="text-xs font-mono text-gray-400"><i class="far fa-clock mr-1"></i> Feb 2026</span>
+                        </div>
+                        <h4 class="text-2xl font-bold text-white mb-2">Cyber Security Live</h4>
+                        <p class="text-sm text-gray-300 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100 line-clamp-2">Practical hands-on sessions covering network security and ethical hacking basics.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Student Achievements Section -->
+    <section id="achievements" class="py-24 relative overflow-hidden bg-brand-dark/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16 relative z-10">
+            <div class="text-center reveal">
+                <div class="inline-flex items-center gap-2 mb-3">
+                    <span class="h-px w-8 bg-brand-purple"></span>
+                    <h2 class="text-brand-purpleLight font-mono text-sm tracking-widest uppercase">Wall of Fame</h2>
+                    <span class="h-px w-8 bg-brand-purple"></span>
+                </div>
+                <h3 class="text-3xl md:text-5xl font-extrabold text-white">Student Achievements</h3>
+                <p class="mt-4 text-gray-400 max-w-2xl mx-auto text-lg italic">Recognizing excellence in tech, culture, and sports for the year 2025-26.</p>
+            </div>
+        </div>
+
+        <!-- Marquee Row 1 -->
+        <div class="marquee-container marquee-pause marquee-mask mb-8">
+            <div class="flex gap-6 animate-marquee whitespace-nowrap py-4">
+                <!-- Card Set 1 -->
+                <div class="flex gap-6">
+                    <!-- Achievement 1 -->
+                    <div class="glass-card w-[350px] p-6 rounded-2xl flex flex-col gap-4 border-l-4 border-l-brand-purple hover-glow transition-all duration-300">
+                        <div class="flex items-center gap-4">
+                            <div class="shrink-0">
+                                <img src="https://ui-avatars.com/api/?name=Paragkumar+Suthar&background=8B5CF6&color=fff" alt="Student" class="w-14 h-14 rounded-full border border-brand-purple/50">
+                            </div>
+                            <div>
+                                <h5 class="text-white font-bold">Paragkumar Suthar</h5>
+                                <p class="text-xs text-brand-purpleLight font-mono">1st Rank | TYBSCIT</p>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="text-sm font-bold text-gray-200 mb-1">Corporate Clash</div>
+                            <div class="text-xs text-gray-400">E-SUMMIT | L.S. Raheja College</div>
+                        </div>
+                    </div>
+                    <!-- Achievement 2 -->
+                    <div class="glass-card w-[350px] p-6 rounded-2xl flex flex-col gap-4 border-l-4 border-l-pink-500 hover-glow transition-all duration-300">
+                        <div class="flex items-center gap-4">
+                            <div class="shrink-0">
+                                <img src="https://ui-avatars.com/api/?name=Shweta+Jadhav&background=EC4899&color=fff" alt="Student" class="w-14 h-14 rounded-full border border-pink-500/50">
+                            </div>
+                            <div>
+                                <h5 class="text-white font-bold">Shweta Janardhan Jadhav</h5>
+                                <p class="text-xs text-pink-400 font-mono">1st Rank | TYBSCIT</p>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="text-sm font-bold text-gray-200 mb-1">Elocution Winner</div>
+                            <div class="text-xs text-gray-400">KARMA | Pune Vidyarthi College</div>
+                        </div>
+                    </div>
+                    <!-- Achievement 3 -->
+                    <div class="glass-card w-[350px] p-6 rounded-2xl flex flex-col gap-4 border-l-4 border-l-blue-500 hover-glow transition-all duration-300">
+                        <div class="flex items-center gap-4">
+                            <div class="shrink-0">
+                                <img src="https://ui-avatars.com/api/?name=Raj+Pandey&background=3B82F6&color=fff" alt="Student" class="w-14 h-14 rounded-full border border-blue-500/50">
+                            </div>
+                            <div>
+                                <h5 class="text-white font-bold">Raj Pandey</h5>
+                                <p class="text-xs text-blue-400 font-mono">2nd Rank | TYBSCIT</p>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="text-sm font-bold text-gray-200 mb-1">Singing Competition</div>
+                            <div class="text-xs text-gray-400">KARMA | Pune Vidyarthi College</div>
+                        </div>
+                    </div>
+                    <!-- Achievement 4 -->
+                    <div class="glass-card w-[350px] p-6 rounded-2xl flex flex-col gap-4 border-l-4 border-l-amber-500 hover-glow transition-all duration-300">
+                        <div class="flex items-center gap-4">
+                            <div class="shrink-0">
+                                <img src="https://ui-avatars.com/api/?name=Chandan+Tiwadi&background=F59E0B&color=fff" alt="Student" class="w-14 h-14 rounded-full border border-amber-500/50">
+                            </div>
+                            <div>
+                                <h5 class="text-white font-bold">Chandan Gopal Tiwadi</h5>
+                                <p class="text-xs text-amber-400 font-mono">2nd Rank | SYBSCIT</p>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="text-sm font-bold text-gray-200 mb-1">Executive Event</div>
+                            <div class="text-xs text-gray-400">E-SUMMIT | L.S. Raheja College</div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Duplicate Set for Seamless Loop -->
+                <div class="flex gap-6">
+                    <div class="glass-card w-[350px] p-6 rounded-2xl flex flex-col gap-4 border-l-4 border-l-brand-purple hover-glow transition-all duration-300">
+                        <div class="flex items-center gap-4">
+                            <div class="shrink-0"><img src="https://ui-avatars.com/api/?name=Paragkumar+Suthar&background=8B5CF6&color=fff" class="w-14 h-14 rounded-full border border-brand-purple/50"></div>
+                            <div><h5 class="text-white font-bold">Paragkumar Suthar</h5><p class="text-xs text-brand-purpleLight font-mono">1st Rank | TYBSCIT</p></div>
+                        </div>
+                        <div><div class="text-sm font-bold text-gray-200 mb-1">Corporate Clash</div><div class="text-xs text-gray-400">E-SUMMIT | L.S. Raheja College</div></div>
+                    </div>
+                    <div class="glass-card w-[350px] p-6 rounded-2xl flex flex-col gap-4 border-l-4 border-l-pink-500 hover-glow transition-all duration-300">
+                        <div class="flex items-center gap-4">
+                            <div class="shrink-0"><img src="https://ui-avatars.com/api/?name=Shweta+Jadhav&background=EC4899&color=fff" class="w-14 h-14 rounded-full border border-pink-500/50"></div>
+                            <div><h5 class="text-white font-bold">Shweta Janardhan Jadhav</h5><p class="text-xs text-pink-400 font-mono">1st Rank | TYBSCIT</p></div>
+                        </div>
+                        <div><div class="text-sm font-bold text-gray-200 mb-1">Elocution Winner</div><div class="text-xs text-gray-400">KARMA | Pune Vidyarthi College</div></div>
+                    </div>
+                    <div class="glass-card w-[350px] p-6 rounded-2xl flex flex-col gap-4 border-l-4 border-l-blue-500 hover-glow transition-all duration-300">
+                        <div class="flex items-center gap-4">
+                            <div class="shrink-0"><img src="https://ui-avatars.com/api/?name=Raj+Pandey&background=3B82F6&color=fff" class="w-14 h-14 rounded-full border border-blue-500/50"></div>
+                            <div><h5 class="text-white font-bold">Raj Pandey</h5><p class="text-xs text-blue-400 font-mono">2nd Rank | TYBSCIT</p></div>
+                        </div>
+                        <div><div class="text-sm font-bold text-gray-200 mb-1">Singing Competition</div><div class="text-xs text-gray-400">KARMA | Pune Vidyarthi College</div></div>
+                    </div>
+                    <div class="glass-card w-[350px] p-6 rounded-2xl flex flex-col gap-4 border-l-4 border-l-amber-500 hover-glow transition-all duration-300">
+                        <div class="flex items-center gap-4">
+                            <div class="shrink-0"><img src="https://ui-avatars.com/api/?name=Chandan+Tiwadi&background=F59E0B&color=fff" class="w-14 h-14 rounded-full border border-amber-500/50"></div>
+                            <div><h5 class="text-white font-bold">Chandan Gopal Tiwadi</h5><p class="text-xs text-amber-400 font-mono">2nd Rank | SYBSCIT</p></div>
+                        </div>
+                        <div><div class="text-sm font-bold text-gray-200 mb-1">Executive Event</div><div class="text-xs text-gray-400">E-SUMMIT | L.S. Raheja College</div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Marquee Row 2 -->
+        <div class="marquee-container marquee-pause marquee-mask">
+            <div class="flex gap-6 animate-marquee-reverse whitespace-nowrap py-4">
+                <!-- Card Set 1 -->
+                <div class="flex gap-6">
+                    <!-- Achievement 5 -->
+                    <div class="glass-card w-[350px] p-6 rounded-2xl flex flex-col gap-4 border-l-4 border-l-green-500 hover-glow transition-all duration-300">
+                        <div class="flex items-center gap-4">
+                            <div class="shrink-0">
+                                <img src="https://ui-avatars.com/api/?name=Paragkumar+Suthar&background=10B981&color=fff" alt="Student" class="w-14 h-14 rounded-full border border-green-500/50">
+                            </div>
+                            <div>
+                                <h5 class="text-white font-bold">Paragkumar Suthar</h5>
+                                <p class="text-xs text-green-400 font-mono">1st Rank | TYBSCIT</p>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="text-sm font-bold text-gray-200 mb-1">Debate Competition</div>
+                            <div class="text-xs text-gray-400">HUNAR | Lala Lajpat Rai College</div>
+                        </div>
+                    </div>
+                    <!-- Achievement 6 -->
+                    <div class="glass-card w-[350px] p-6 rounded-2xl flex flex-col gap-4 border-l-4 border-l-indigo-500 hover-glow transition-all duration-300">
+                        <div class="flex items-center gap-4">
+                            <div class="shrink-0">
+                                <img src="https://ui-avatars.com/api/?name=Shahid+Khan&background=6366F1&color=fff" alt="Student" class="w-14 h-14 rounded-full border border-indigo-500/50">
+                            </div>
+                            <div>
+                                <h5 class="text-white font-bold">Shahid Khan</h5>
+                                <p class="text-xs text-indigo-400 font-mono">3rd Rank | TYBSCIT</p>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="text-sm font-bold text-gray-200 mb-1">Tug of War</div>
+                            <div class="text-xs text-gray-400">Annual Sports | K.P.B. Hinduja College</div>
+                        </div>
+                    </div>
+                    <!-- Achievement 7 -->
+                    <div class="glass-card w-[350px] p-6 rounded-2xl flex flex-col gap-4 border-l-4 border-l-cyan-500 hover-glow transition-all duration-300">
+                        <div class="flex items-center gap-4">
+                            <div class="shrink-0">
+                                <img src="https://ui-avatars.com/api/?name=Shweta+Jadhav&background=06B6D4&color=fff" alt="Student" class="w-14 h-14 rounded-full border border-cyan-500/50">
+                            </div>
+                            <div>
+                                <h5 class="text-white font-bold">Shweta Jadhav</h5>
+                                <p class="text-xs text-cyan-400 font-mono">1st Rank | TYBSCIT</p>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="text-sm font-bold text-gray-200 mb-1">Mystery Mania</div>
+                            <div class="text-xs text-gray-400">HUNAR | Lala Lajpat Rai College</div>
+                        </div>
+                    </div>
+                    <!-- Achievement 8 -->
+                    <div class="glass-card w-[350px] p-6 rounded-2xl flex flex-col gap-4 border-l-4 border-l-rose-500 hover-glow transition-all duration-300">
+                        <div class="flex items-center gap-4">
+                            <div class="shrink-0">
+                                <img src="https://ui-avatars.com/api/?name=Paragkumar+Suthar&background=F43F5E&color=fff" alt="Student" class="w-14 h-14 rounded-full border border-rose-500/50">
+                            </div>
+                            <div>
+                                <h5 class="text-white font-bold">Paragkumar Suthar</h5>
+                                <p class="text-xs text-rose-400 font-mono">2nd Rank | TYBSCIT</p>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="text-sm font-bold text-gray-200 mb-1">Pixelart Design</div>
+                            <div class="text-xs text-gray-400">TECHNOTSAV | Nirmala College</div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Duplicate Set for Seamless Loop -->
+                <div class="flex gap-6">
+                    <div class="glass-card w-[350px] p-6 rounded-2xl flex flex-col gap-4 border-l-4 border-l-green-500 hover-glow transition-all duration-300">
+                        <div class="flex items-center gap-4">
+                            <div class="shrink-0"><img src="https://ui-avatars.com/api/?name=Paragkumar+Suthar&background=10B981&color=fff" class="w-14 h-14 rounded-full border border-green-500/50"></div>
+                            <div><h5 class="text-white font-bold">Paragkumar Suthar</h5><p class="text-xs text-green-400 font-mono">1st Rank | TYBSCIT</p></div>
+                        </div>
+                        <div><div class="text-sm font-bold text-gray-200 mb-1">Debate Competition</div><div class="text-xs text-gray-400">HUNAR | Lala Lajpat Rai College</div></div>
+                    </div>
+                    <div class="glass-card w-[350px] p-6 rounded-2xl flex flex-col gap-4 border-l-4 border-l-indigo-500 hover-glow transition-all duration-300">
+                        <div class="flex items-center gap-4">
+                            <div class="shrink-0"><img src="https://ui-avatars.com/api/?name=Shahid+Khan&background=6366F1&color=fff" class="w-14 h-14 rounded-full border border-indigo-500/50"></div>
+                            <div><h5 class="text-white font-bold">Shahid Khan</h5><p class="text-xs text-indigo-400 font-mono">3rd Rank | TYBSCIT</p></div>
+                        </div>
+                        <div><div class="text-sm font-bold text-gray-200 mb-1">Tug of War</div><div class="text-xs text-gray-400">Annual Sports | K.P.B. Hinduja College</div></div>
+                    </div>
+                    <div class="glass-card w-[350px] p-6 rounded-2xl flex flex-col gap-4 border-l-4 border-l-cyan-500 hover-glow transition-all duration-300">
+                        <div class="flex items-center gap-4">
+                            <div class="shrink-0"><img src="https://ui-avatars.com/api/?name=Shweta+Jadhav&background=06B6D4&color=fff" class="w-14 h-14 rounded-full border border-cyan-500/50"></div>
+                            <div><h5 class="text-white font-bold">Shweta Jadhav</h5><p class="text-xs text-cyan-400 font-mono">1st Rank | TYBSCIT</p></div>
+                        </div>
+                        <div><div class="text-sm font-bold text-gray-200 mb-1">Mystery Mania</div><div class="text-xs text-gray-400">HUNAR | Lala Lajpat Rai College</div></div>
+                    </div>
+                    <div class="glass-card w-[350px] p-6 rounded-2xl flex flex-col gap-4 border-l-4 border-l-rose-500 hover-glow transition-all duration-300">
+                        <div class="flex items-center gap-4">
+                            <div class="shrink-0"><img src="https://ui-avatars.com/api/?name=Paragkumar+Suthar&background=F43F5E&color=fff" class="w-14 h-14 rounded-full border border-rose-500/50"></div>
+                            <div><h5 class="text-white font-bold">Paragkumar Suthar</h5><p class="text-xs text-rose-400 font-mono">2nd Rank | TYBSCIT</p></div>
+                        </div>
+                        <div><div class="text-sm font-bold text-gray-200 mb-1">Pixelart Design</div><div class="text-xs text-gray-400">TECHNOTSAV | Nirmala College</div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Location & Map -->
+    <section id="contact" class="py-24 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="glass-card rounded-3xl overflow-hidden reveal shadow-2xl">
+                <div class="grid lg:grid-cols-2">
+                    <!-- Info -->
+                    <div class="p-8 md:p-14 flex flex-col justify-center relative">
+                        <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-brand-purple to-pink-500"></div>
+                        <h2 class="text-4xl font-bold mb-8 text-white">Campus Location</h2>
+                        
+                        <div class="space-y-8">
+                            <div class="flex items-start gap-5">
+                                <div class="w-12 h-12 rounded-xl bg-gray-800 border border-gray-700 flex items-center justify-center shrink-0 mt-1 shadow-inner">
+                                    <i class="fas fa-map-marker-alt text-brand-purpleLight text-xl"></i>
+                                </div>
+                                <div>
+                                    <h5 class="font-bold text-white text-lg mb-1">College Address</h5>
+                                    <p class="text-gray-400 text-sm leading-relaxed">
+                                        <strong class="text-gray-300 block mb-1">Smt. P.D Hinduja Trust's<br>K. P. B. HINDUJA COLLEGE OF COMMERCE</strong>
+                                        Sadhana Textile Mill, Pandurang Budhkar Marg,<br>
+                                        Gopal Nagar, Lower Parel, Mumbai, Maharashtra 400013
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-5">
+                                <div class="w-12 h-12 rounded-xl bg-gray-800 border border-gray-700 flex items-center justify-center shrink-0 mt-1 shadow-inner">
+                                    <i class="fas fa-train text-brand-purpleLight text-xl"></i>
+                                </div>
+                                <div>
+                                    <h5 class="font-bold text-white text-lg mb-2">Nearest Transit</h5>
+                                    <div class="space-y-2">
+                                        <div class="flex items-center gap-3">
+                                            <span class="w-2 h-2 rounded-full bg-blue-500"></span>
+                                            <p class="text-gray-400 text-sm">Prabhadevi Railway Station <span class="text-xs text-gray-500 font-mono">(Western)</span></p>
+                                        </div>
+                                        <div class="flex items-center gap-3">
+                                            <span class="w-2 h-2 rounded-full bg-green-500"></span>
+                                            <p class="text-gray-400 text-sm">Parel Railway Station <span class="text-xs text-gray-500 font-mono">(Central)</span></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-10 pt-8 border-t border-gray-800">
+                            <a href="mailto:info@hindujacollege.com" class="inline-flex items-center justify-center gap-3 px-8 py-4 bg-brand-purple hover:bg-brand-purpleLight text-white rounded-xl transition-all shadow-[0_0_15px_rgba(139,92,246,0.3)] hover:shadow-[0_0_25px_rgba(139,92,246,0.5)] w-full sm:w-auto font-bold tracking-wide">
+                                <i class="fas fa-envelope"></i> Email the Department
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Map -->
+                    <div class="h-80 lg:h-auto min-h-[500px] w-full bg-gray-900 relative">
+                        <div class="absolute inset-0 bg-brand-purple/10 pointer-events-none mix-blend-overlay z-10"></div>
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3771.8540866042456!2d72.82522771542616!3d19.00629638712808!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7ce9555555555%3A0xc622e03036a182bd!2sSadhana%20Mill!5e0!3m2!1sen!2sin!4v1655000000000!5m2!1sen!2sin" 
+                            width="100%" 
+                            height="100%" 
+                            style="border:0; filter: invert(100%) hue-rotate(180deg) brightness(95%) contrast(90%) grayscale(20%);" 
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade"
+                            class="absolute inset-0">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-gray-800 bg-brand-dark py-12 relative z-10 overflow-hidden">
+        <!-- Footer bg glow -->
+        <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[300px] bg-brand-purple/10 blur-[100px] rounded-full pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6 mb-10">
+                <div class="text-center md:text-left">
+                    <h2 class="text-2xl font-bold flex items-center justify-center md:justify-start gap-3 mb-2 text-white">
+                        <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-brand-purple to-brand-purpleDark flex items-center justify-center font-mono text-sm shadow-[0_0_15px_rgba(139,92,246,0.3)]">
+                            <img src="assets/Cllglogo.png" alt="Logo">
+                        </div>
+                        K.P.B. Hinduja College Of Commerece 
+                    </h2>
+                    <p class="text-gray-400 text-sm">Empowering students not only to excel, but to outshine.</p>
+                </div>
+                <div class="flex gap-4">
+                    <a href="#" class="w-12 h-12 rounded-full bg-gray-900 border border-gray-800 flex items-center justify-center text-gray-400 hover:text-white hover:bg-brand-purple hover:border-brand-purple transition-all shadow-lg hover:-translate-y-1"><i class="fab fa-linkedin-in text-lg"></i></a>
+                    
+                    <a href="#" class="w-12 h-12 rounded-full bg-gray-900 border border-gray-800 flex items-center justify-center text-gray-400 hover:text-white hover:bg-brand-purple hover:border-brand-purple transition-all shadow-lg hover:-translate-y-1"><i class="fab fa-instagram text-lg"></i></a>
+                </div>
+            </div>
+            
+            <div class="pt-8 border-t border-gray-800/60 text-center text-gray-500 text-sm flex flex-col sm:flex-row justify-between items-center font-mono">
+                <p>&copy; 2026 K.P.B Hinduja College, Dept. of IT.</p>
+                <p class="mt-3 sm:mt-0">Designed for the Future.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Mobile Menu Toggle
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu on link click
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.add('hidden');
+            });
+        });
+
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 20) {
+                navbar.classList.add('glass', 'shadow-lg');
+                navbar.classList.remove('border-transparent');
+            } else {
+                navbar.classList.remove('glass', 'shadow-lg');
+                navbar.classList.add('border-transparent');
+            }
+        });
+
+        // Main Tab System for Courses
+        function showTab(tabId) {
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.add('hidden');
+                content.classList.remove('block');
+            });
+            document.getElementById('tab-' + tabId).classList.remove('hidden');
+            document.getElementById('tab-' + tabId).classList.add('block');
+            
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('bg-brand-purple', 'text-white', 'shadow-[0_0_15px_rgba(139,92,246,0.3)]');
+                btn.classList.add('bg-transparent', 'text-gray-400');
+            });
+            
+            event.currentTarget.classList.remove('bg-transparent', 'text-gray-400');
+            event.currentTarget.classList.add('bg-brand-purple', 'text-white', 'shadow-[0_0_15px_rgba(139,92,246,0.3)]');
+        }
+
+        // Sub Tab System for BSc IT
+        function showBscTab(year) {
+            document.querySelectorAll('.bsc-tab-content').forEach(content => {
+                content.classList.add('hidden');
+                content.classList.remove('block');
+            });
+            document.getElementById('bsc-tab-' + year).classList.remove('hidden');
+            document.getElementById('bsc-tab-' + year).classList.add('block');
+            
+            document.querySelectorAll('.bsc-tab-btn').forEach(btn => {
+                btn.classList.remove('bg-brand-purple', 'text-white', 'shadow-[0_0_15px_rgba(139,92,246,0.3)]');
+                btn.classList.add('bg-transparent', 'text-gray-400');
+            });
+            
+            event.currentTarget.classList.remove('bg-transparent', 'text-gray-400');
+            event.currentTarget.classList.add('bg-brand-purple', 'text-white', 'shadow-[0_0_15px_rgba(139,92,246,0.3)]');
+        }
+
+        // Intersection Observer for scroll animations
+        const revealElements = document.querySelectorAll('.reveal');
+        
+        const revealCallback = (entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target);
+                }
+            });
+        };
+
+        const revealOptions = {
+            threshold: 0.1,
+            rootMargin: "0px 0px -50px 0px"
+        };
+
+        const revealObserver = new IntersectionObserver(revealCallback, revealOptions);
+        revealElements.forEach(el => revealObserver.observe(el));
+    </script>
+</body>
+</html>
