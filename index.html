@@ -1284,122 +1284,87 @@
         </div>
     </section>
 
-    <!-- Events Gallery -->
-    <section id="events" class="py-24 relative bg-black/40 border-y border-white/5">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col md:flex-row justify-between items-end mb-12 reveal">
-                <div>
-                    <div class="inline-flex items-center gap-2 mb-3">
-                        <span class="h-px w-8 bg-brand-purple"></span>
-                        <h2 class="text-brand-purpleLight font-mono text-sm tracking-widest uppercase">Life at Hinduja</h2>
-                    </div>
-                    <h3 class="text-3xl md:text-5xl font-extrabold text-white">Tech Events & Gallery</h3>
+    <section id="events" class="py-24 relative bg-black/40 border-y border-white/5 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
+            <div class="text-center reveal">
+                <div class="inline-flex items-center gap-2 mb-3">
+                    <span class="h-px w-8 bg-brand-purple"></span>
+                    <h2 class="text-brand-purpleLight font-mono text-sm tracking-widest uppercase">Life at Hinduja</h2>
+                    <span class="h-px w-8 bg-brand-purple"></span>
                 </div>
-                <button class="mt-6 md:mt-0 px-6 py-2 rounded-full border border-gray-700 text-sm font-mono text-gray-300 hover:text-white hover:border-brand-purple hover:bg-brand-purple/10 transition-all flex items-center gap-2">
-                    View All Gallery <i class="fas fa-arrow-right"></i>
-                </button>
+                <h3 class="text-3xl md:text-5xl font-extrabold text-white">Tech Events & Gallery</h3>
             </div>
+        </div>
 
-            <div class="marquee-container marquee-pause marquee-mask">
-                <div class="flex gap-8 animate-marquee py-4">
-                    <!-- Event Set 1 -->
-                    <div class="flex gap-8">
-                        <!-- Card 1 -->
-                        <div class="event-card group relative rounded-3xl overflow-hidden border border-gray-800/60 h-80 shadow-lg cursor-pointer" 
-                             onclick="openEventModal('AI & Future Tech', 'Seminar', 'Oct 2025', 'Guest lecture by industry experts discussing the latest trends in Machine Learning, Deep Learning, and the impact of AI on various industries including healthcare, finance, and automotive. The session will cover practical applications and future career paths.', 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')">
-                            <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Tech Seminar" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110">
-                            <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/60 to-transparent opacity-90 group-hover:opacity-80 transition-opacity duration-500"></div>
-                            <div class="absolute inset-0 bg-brand-purple/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 mix-blend-overlay"></div>
-                            <div class="absolute bottom-0 left-0 p-8 w-full transform translate-y-6 group-hover:translate-y-0 transition-transform duration-500 ease-out">
-                                <div class="flex items-center gap-3 mb-4">
-                                    <span class="px-3 py-1 bg-brand-purple text-white text-[10px] font-bold uppercase tracking-wider rounded-full shadow-lg">Seminar</span>
-                                    <span class="text-xs font-mono text-gray-400"><i class="far fa-clock mr-1"></i> Oct 2025</span>
-                                </div>
-                                <h4 class="text-2xl font-bold text-white mb-2">AI & Future Tech</h4>
-                                <p class="text-sm text-gray-300 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100 line-clamp-2">Guest lecture by industry experts discussing the latest trends in Machine Learning.</p>
+        <div class="marquee-container marquee-pause marquee-mask">
+            <div class="flex gap-8 animate-marquee py-4">
+                <!-- Event Set 1 -->
+                <div class="flex gap-8 shrink-0">
+                    <!-- Card 1 -->
+                    <div class="event-card shrink-0 group relative rounded-3xl overflow-hidden border border-gray-800/60 h-80 w-[400px] shadow-lg cursor-pointer" 
+                         onclick="openEventModal('AI & Future Tech', 'Seminar', 'Oct 2025', 'Guest lecture by industry experts discussing the latest trends in Machine Learning, Deep Learning, and the impact of AI on various industries including healthcare, finance, and automotive.', 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')">
+                        <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Tech Seminar" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/60 to-transparent opacity-90 group-hover:opacity-80 transition-opacity duration-500"></div>
+                        <div class="absolute inset-0 bg-brand-purple/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 mix-blend-overlay"></div>
+                        <div class="absolute bottom-0 left-0 p-8 w-full transform translate-y-6 group-hover:translate-y-0 transition-transform duration-500 ease-out">
+                            <div class="flex items-center gap-3 mb-4">
+                                <span class="px-3 py-1 bg-brand-purple text-white text-[10px] font-bold uppercase tracking-wider rounded-full shadow-lg">Seminar</span>
+                                <span class="text-xs font-mono text-gray-400"><i class="far fa-clock mr-1"></i> Oct 2025</span>
                             </div>
-                        </div>
-
-                        <!-- Card 2 -->
-                        <div class="event-card group relative rounded-3xl overflow-hidden border border-gray-800/60 h-80 shadow-lg cursor-pointer"
-                             onclick="openEventModal('Hinduja E-Sports Arena 2025', 'E-Sports', 'Dec 2025', 'A massive E-Sports tournament hosted in the college campus featuring popular titles. Students will compete for the championship title and exciting prizes. The event aims to foster team spirit and competitive gaming skills.', 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')">
-                            <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Hackathon" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110">
-                            <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/60 to-transparent opacity-90 group-hover:opacity-80 transition-opacity duration-500"></div>
-                            <div class="absolute inset-0 bg-pink-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 mix-blend-overlay"></div>
-                            <div class="absolute bottom-0 left-0 p-8 w-full transform translate-y-6 group-hover:translate-y-0 transition-transform duration-500 ease-out">
-                                <div class="flex items-center gap-3 mb-4">
-                                    <span class="px-3 py-1 bg-pink-600 text-white text-[10px] font-bold uppercase tracking-wider rounded-full shadow-lg">E-Sports</span>
-                                    <span class="text-xs font-mono text-gray-400"><i class="far fa-clock mr-1"></i> Dec 2025</span>
-                                </div>
-                                <h4 class="text-2xl font-bold text-white mb-2">Hinduja E-Sports Arena 2025</h4>
-                                <p class="text-sm text-gray-300 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100 line-clamp-2">A E-Sports tournament in the College Campus.</p>
-                            </div>
-                        </div>
-
-                        <!-- Card 3 -->
-                        <div class="event-card group relative rounded-3xl overflow-hidden border border-gray-800/60 h-80 shadow-lg cursor-pointer"
-                             onclick="openEventModal('Cyber Security Live', 'Workshop', 'Feb 2026', 'Practical hands-on sessions covering network security, ethical hacking basics, and digital privacy. Participants will learn how to secure their data and understand the latest threats in the cyber world.', 'https://images.unsplash.com/photo-1515187029135-18ee286d815b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')">
-                            <img src="https://images.unsplash.com/photo-1515187029135-18ee286d815b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Workshop" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110">
-                            <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/60 to-transparent opacity-90 group-hover:opacity-80 transition-opacity duration-500"></div>
-                            <div class="absolute inset-0 bg-blue-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 mix-blend-overlay"></div>
-                            <div class="absolute bottom-0 left-0 p-8 w-full transform translate-y-6 group-hover:translate-y-0 transition-transform duration-500 ease-out">
-                                <div class="flex items-center gap-3 mb-4">
-                                    <span class="px-3 py-1 bg-blue-600 text-white text-[10px] font-bold uppercase tracking-wider rounded-full shadow-lg">Workshop</span>
-                                    <span class="text-xs font-mono text-gray-400"><i class="far fa-clock mr-1"></i> Feb 2026</span>
-                                </div>
-                                <h4 class="text-2xl font-bold text-white mb-2">Cyber Security Live</h4>
-                                <p class="text-sm text-gray-300 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100 line-clamp-2">Practical hands-on sessions covering network security and ethical hacking basics.</p>
-                            </div>
-                        </div>
-
-                        <!-- Card 4 -->
-                        <div class="event-card group relative rounded-3xl overflow-hidden border border-gray-800/60 h-80 shadow-lg cursor-pointer"
-                             onclick="openEventModal('Cloud Expo 2026', 'Exhibition', 'March 2026', 'A showcase of cloud computing technologies and their impact on modern businesses. Features projects by students and industry demos.', 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')">
-                            <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Cloud Expo" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110">
-                            <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/60 to-transparent opacity-90 group-hover:opacity-80 transition-opacity duration-500"></div>
-                            <div class="absolute inset-0 bg-brand-purple/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 mix-blend-overlay"></div>
-                            <div class="absolute bottom-0 left-0 p-8 w-full transform translate-y-6 group-hover:translate-y-0 transition-transform duration-500 ease-out">
-                                <div class="flex items-center gap-3 mb-4">
-                                    <span class="px-3 py-1 bg-brand-purple text-white text-[10px] font-bold uppercase tracking-wider rounded-full shadow-lg">Exhibition</span>
-                                    <span class="text-xs font-mono text-gray-400"><i class="far fa-clock mr-1"></i> March 2026</span>
-                                </div>
-                                <h4 class="text-2xl font-bold text-white mb-2">Cloud Expo 2026</h4>
-                                <p class="text-sm text-gray-300 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100 line-clamp-2">Showcase of next-gen cloud technologies.</p>
-                            </div>
+                            <h4 class="text-2xl font-bold text-white mb-2">AI & Future Tech</h4>
+                            <p class="text-sm text-gray-300 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100 line-clamp-2">Guest lecture by industry experts discussing the latest trends in Machine Learning.</p>
                         </div>
                     </div>
 
-                    <!-- Duplicate for loop -->
-                    <div class="flex gap-8">
-                        <!-- Card 1 -->
-                        <div class="event-card group relative rounded-3xl overflow-hidden border border-gray-800/60 h-80 shadow-lg cursor-pointer" 
-                             onclick="openEventModal('AI & Future Tech', 'Seminar', 'Oct 2025', '...', 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')">
-                            <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Tech Seminar" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110">
-                            <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/60 to-transparent opacity-90 group-hover:opacity-80 transition-opacity duration-500"></div>
-                            <div class="absolute bottom-0 left-0 p-8 w-full transform translate-y-6 group-hover:translate-y-0 transition-transform duration-500 ease-out">
-                                <div class="flex items-center gap-3 mb-4">
-                                    <span class="px-3 py-1 bg-brand-purple text-white text-[10px] font-bold uppercase tracking-wider rounded-full shadow-lg">Seminar</span>
-                                    <span class="text-xs font-mono text-gray-400">Oct 2025</span>
-                                </div>
-                                <h4 class="text-2xl font-bold text-white mb-2">AI & Future Tech</h4>
+                    <!-- Card 2 -->
+                    <div class="event-card shrink-0 group relative rounded-3xl overflow-hidden border border-gray-800/60 h-80 w-[400px] shadow-lg cursor-pointer"
+                         onclick="openEventModal('Hinduja E-Sports Arena 2025', 'E-Sports', 'Dec 2025', 'A massive E-Sports tournament hosted in the college campus featuring popular titles.', 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')">
+                        <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Hackathon" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/60 to-transparent opacity-90 group-hover:opacity-80 transition-opacity duration-500"></div>
+                        <div class="absolute inset-0 bg-pink-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 mix-blend-overlay"></div>
+                        <div class="absolute bottom-0 left-0 p-8 w-full transform translate-y-6 group-hover:translate-y-0 transition-transform duration-500 ease-out">
+                            <div class="flex items-center gap-3 mb-4">
+                                <span class="px-3 py-1 bg-pink-600 text-white text-[10px] font-bold uppercase tracking-wider rounded-full shadow-lg">E-Sports</span>
+                                <span class="text-xs font-mono text-gray-400"><i class="far fa-clock mr-1"></i> Dec 2025</span>
                             </div>
+                            <h4 class="text-2xl font-bold text-white mb-2">Hinduja E-Sports Arena 2025</h4>
+                            <p class="text-sm text-gray-300 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100 line-clamp-2">A E-Sports tournament in the College Campus.</p>
                         </div>
-                        <!-- ... rest of duplicates can be simplified or full ... -->
-                        <div class="event-card group relative rounded-3xl overflow-hidden border border-gray-800/60 h-80 shadow-lg cursor-pointer" onclick="openEventModal('Hinduja E-Sports Arena 2025', 'E-Sports', 'Dec 2025', '...', 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')">
-                            <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover">
-                            <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/60 to-transparent opacity-90"></div>
-                            <div class="absolute bottom-0 left-0 p-8 w-full"><h4 class="text-2xl font-bold text-white">Hinduja E-Sports Arena 2025</h4></div>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="event-card shrink-0 group relative rounded-3xl overflow-hidden border border-gray-800/60 h-80 w-[400px] shadow-lg cursor-pointer"
+                         onclick="openEventModal('Cyber Security Live', 'Workshop', 'Feb 2026', 'Practical hands-on sessions covering network security and ethical hacking basics.', 'https://images.unsplash.com/photo-1515187029135-18ee286d815b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')">
+                        <img src="https://images.unsplash.com/photo-1515187029135-18ee286d815b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Workshop" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/60 to-transparent opacity-90 group-hover:opacity-80 transition-opacity duration-500"></div>
+                        <div class="absolute inset-0 bg-blue-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 mix-blend-overlay"></div>
+                        <div class="absolute bottom-0 left-0 p-8 w-full transform translate-y-6 group-hover:translate-y-0 transition-transform duration-500 ease-out">
+                            <div class="flex items-center gap-3 mb-4">
+                                <span class="px-3 py-1 bg-blue-600 text-white text-[10px] font-bold uppercase tracking-wider rounded-full shadow-lg">Workshop</span>
+                                <span class="text-xs font-mono text-gray-400"><i class="far fa-clock mr-1"></i> Feb 2026</span>
+                            </div>
+                            <h4 class="text-2xl font-bold text-white mb-2">Cyber Security Live</h4>
+                            <p class="text-sm text-gray-300 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100 line-clamp-2">Practical hands-on sessions covering network security and ethical hacking basics.</p>
                         </div>
-                        <div class="event-card group relative rounded-3xl overflow-hidden border border-gray-800/60 h-80 shadow-lg cursor-pointer" onclick="openEventModal('Cyber Security Live', 'Workshop', 'Feb 2026', '...', 'https://images.unsplash.com/photo-1515187029135-18ee286d815b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')">
-                            <img src="https://images.unsplash.com/photo-1515187029135-18ee286d815b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover">
-                            <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/60 to-transparent opacity-90"></div>
-                            <div class="absolute bottom-0 left-0 p-8 w-full"><h4 class="text-2xl font-bold text-white">Cyber Security Live</h4></div>
-                        </div>
-                        <div class="event-card group relative rounded-3xl overflow-hidden border border-gray-800/60 h-80 shadow-lg cursor-pointer" onclick="openEventModal('Cloud Expo 2026', 'Exhibition', 'March 2026', '...', 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')">
-                            <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover">
-                            <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/60 to-transparent opacity-90"></div>
-                            <div class="absolute bottom-0 left-0 p-8 w-full"><h4 class="text-2xl font-bold text-white">Cloud Expo 2026</h4></div>
-                        </div>
+                    </div>
+                </div>
+
+                <!-- Duplicate for loop -->
+                <div class="flex gap-8 shrink-0">
+                    <div class="event-card shrink-0 group relative rounded-3xl overflow-hidden border border-gray-800/60 h-80 w-[400px] shadow-lg cursor-pointer" onclick="openEventModal('AI & Future Tech', 'Seminar', 'Oct 2025', '...', 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')">
+                        <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/60 to-transparent opacity-90"></div>
+                        <div class="absolute bottom-0 left-0 p-8 w-full"><h4 class="text-2xl font-bold text-white">AI & Future Tech</h4></div>
+                    </div>
+                    <div class="event-card shrink-0 group relative rounded-3xl overflow-hidden border border-gray-800/60 h-80 w-[400px] shadow-lg cursor-pointer" onclick="openEventModal('Hinduja E-Sports Arena 2025', 'E-Sports', 'Dec 2025', '...', 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')">
+                        <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/60 to-transparent opacity-90"></div>
+                        <div class="absolute bottom-0 left-0 p-8 w-full"><h4 class="text-2xl font-bold text-white">Hinduja E-Sports Arena 2025</h4></div>
+                    </div>
+                    <div class="event-card shrink-0 group relative rounded-3xl overflow-hidden border border-gray-800/60 h-80 w-[400px] shadow-lg cursor-pointer" onclick="openEventModal('Cyber Security Live', 'Workshop', 'Feb 2026', '...', 'https://images.unsplash.com/photo-1515187029135-18ee286d815b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')">
+                        <img src="https://images.unsplash.com/photo-1515187029135-18ee286d815b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/60 to-transparent opacity-90"></div>
+                        <div class="absolute bottom-0 left-0 p-8 w-full"><h4 class="text-2xl font-bold text-white">Cyber Security Live</h4></div>
                     </div>
                 </div>
             </div>
@@ -1424,9 +1389,9 @@
         <div class="marquee-container marquee-pause marquee-mask mb-8">
             <div class="flex gap-6 animate-marquee whitespace-nowrap py-4">
                 <!-- Card Set 1 -->
-                <div class="flex gap-6">
+                <div class="flex gap-6 shrink-0">
                     <!-- Achievement 1 -->
-                    <div class="event-card group relative w-[350px] rounded-3xl overflow-hidden border border-gray-800/60 h-80 shadow-lg cursor-pointer">
+                    <div class="event-card shrink-0 group relative w-[350px] rounded-3xl overflow-hidden border border-gray-800/60 h-80 shadow-lg cursor-pointer">
                         <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110">
                         <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/60 to-transparent opacity-90 group-hover:opacity-80"></div>
                         <div class="absolute inset-0 bg-brand-purple/10 opacity-0 group-hover:opacity-100 mix-blend-overlay"></div>
@@ -1443,7 +1408,7 @@
                         </div>
                     </div>
                     <!-- Achievement 2 -->
-                    <div class="event-card group relative w-[350px] rounded-3xl overflow-hidden border border-gray-800/60 h-80 shadow-lg cursor-pointer">
+                    <div class="event-card shrink-0 group relative w-[350px] rounded-3xl overflow-hidden border border-gray-800/60 h-80 shadow-lg cursor-pointer">
                         <img src="https://images.unsplash.com/photo-1475721027187-4024733924f3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110">
                         <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/60 to-transparent opacity-90"></div>
                         <div class="absolute bottom-0 left-0 p-8 w-full">
@@ -1459,7 +1424,7 @@
                         </div>
                     </div>
                     <!-- Achievement 3 -->
-                    <div class="event-card group relative w-[350px] rounded-3xl overflow-hidden border border-gray-800/60 h-80 shadow-lg cursor-pointer">
+                    <div class="event-card shrink-0 group relative w-[350px] rounded-3xl overflow-hidden border border-gray-800/60 h-80 shadow-lg cursor-pointer">
                         <img src="https://images.unsplash.com/photo-1516280440614-37939bbacd81?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110">
                         <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/60 to-transparent opacity-90"></div>
                         <div class="absolute bottom-0 left-0 p-8 w-full">
@@ -1475,7 +1440,7 @@
                         </div>
                     </div>
                     <!-- Achievement 4 -->
-                    <div class="event-card group relative w-[350px] rounded-3xl overflow-hidden border border-gray-800/60 h-80 shadow-lg cursor-pointer">
+                    <div class="event-card shrink-0 group relative w-[350px] rounded-3xl overflow-hidden border border-gray-800/60 h-80 shadow-lg cursor-pointer">
                         <img src="https://images.unsplash.com/photo-1551818255-e6e10975bc17?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110">
                         <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/60 to-transparent opacity-90"></div>
                         <div class="absolute bottom-0 left-0 p-8 w-full">
@@ -1492,34 +1457,42 @@
                     </div>
                 </div>
                 <!-- Duplicate Set for Seamless Loop -->
-                <div class="flex gap-6">
-                    <div class="glass-card w-[350px] p-6 rounded-2xl flex flex-col gap-4 border-l-4 border-l-brand-purple hover-glow transition-all duration-300">
-                        <div class="flex items-center gap-4">
-                            <div class="shrink-0"><img src="https://ui-avatars.com/api/?name=Paragkumar+Suthar&background=8B5CF6&color=fff" class="w-14 h-14 rounded-full border border-brand-purple/50"></div>
-                            <div><h5 class="text-white font-bold">Paragkumar Suthar</h5><p class="text-xs text-brand-purpleLight font-mono">1st Rank | TYBSCIT</p></div>
+                <div class="flex gap-6 shrink-0">
+                    <!-- Achievement 1 Duplicate -->
+                    <div class="event-card shrink-0 group relative w-[350px] rounded-3xl overflow-hidden border border-gray-800/60 h-80 shadow-lg cursor-pointer">
+                        <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/60 to-transparent opacity-90"></div>
+                        <div class="absolute bottom-0 left-0 p-8 w-full">
+                            <h5 class="text-white font-bold text-sm">Paragkumar Suthar</h5>
+                            <h4 class="text-xl font-bold text-white mb-1">Corporate Clash</h4>
                         </div>
-                        <div><div class="text-sm font-bold text-gray-200 mb-1">Corporate Clash</div><div class="text-xs text-gray-400">E-SUMMIT | L.S. Raheja College</div></div>
                     </div>
-                    <div class="glass-card w-[350px] p-6 rounded-2xl flex flex-col gap-4 border-l-4 border-l-pink-500 hover-glow transition-all duration-300">
-                        <div class="flex items-center gap-4">
-                            <div class="shrink-0"><img src="https://ui-avatars.com/api/?name=Shweta+Jadhav&background=EC4899&color=fff" class="w-14 h-14 rounded-full border border-pink-500/50"></div>
-                            <div><h5 class="text-white font-bold">Shweta Janardhan Jadhav</h5><p class="text-xs text-pink-400 font-mono">1st Rank | TYBSCIT</p></div>
+                    <!-- Achievement 2 Duplicate -->
+                    <div class="event-card shrink-0 group relative w-[350px] rounded-3xl overflow-hidden border border-gray-800/60 h-80 shadow-lg cursor-pointer">
+                        <img src="https://images.unsplash.com/photo-1475721027187-4024733924f3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/60 to-transparent opacity-90"></div>
+                        <div class="absolute bottom-0 left-0 p-8 w-full">
+                            <h5 class="text-white font-bold text-sm">Shweta Jadhav</h5>
+                            <h4 class="text-xl font-bold text-white mb-1">Elocution Winner</h4>
                         </div>
-                        <div><div class="text-sm font-bold text-gray-200 mb-1">Elocution Winner</div><div class="text-xs text-gray-400">KARMA | Pune Vidyarthi College</div></div>
                     </div>
-                    <div class="glass-card w-[350px] p-6 rounded-2xl flex flex-col gap-4 border-l-4 border-l-blue-500 hover-glow transition-all duration-300">
-                        <div class="flex items-center gap-4">
-                            <div class="shrink-0"><img src="https://ui-avatars.com/api/?name=Raj+Pandey&background=3B82F6&color=fff" class="w-14 h-14 rounded-full border border-blue-500/50"></div>
-                            <div><h5 class="text-white font-bold">Raj Pandey</h5><p class="text-xs text-blue-400 font-mono">2nd Rank | TYBSCIT</p></div>
+                    <!-- Achievement 3 Duplicate -->
+                    <div class="event-card shrink-0 group relative w-[350px] rounded-3xl overflow-hidden border border-gray-800/60 h-80 shadow-lg cursor-pointer">
+                        <img src="https://images.unsplash.com/photo-1516280440614-37939bbacd81?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/60 to-transparent opacity-90"></div>
+                        <div class="absolute bottom-0 left-0 p-8 w-full">
+                            <h5 class="text-white font-bold text-sm">Raj Pandey</h5>
+                            <h4 class="text-xl font-bold text-white mb-1">Singing Competition</h4>
                         </div>
-                        <div><div class="text-sm font-bold text-gray-200 mb-1">Singing Competition</div><div class="text-xs text-gray-400">KARMA | Pune Vidyarthi College</div></div>
                     </div>
-                    <div class="glass-card w-[350px] p-6 rounded-2xl flex flex-col gap-4 border-l-4 border-l-amber-500 hover-glow transition-all duration-300">
-                        <div class="flex items-center gap-4">
-                            <div class="shrink-0"><img src="https://ui-avatars.com/api/?name=Chandan+Tiwadi&background=F59E0B&color=fff" class="w-14 h-14 rounded-full border border-amber-500/50"></div>
-                            <div><h5 class="text-white font-bold">Chandan Gopal Tiwadi</h5><p class="text-xs text-amber-400 font-mono">2nd Rank | SYBSCIT</p></div>
+                    <!-- Achievement 4 Duplicate -->
+                    <div class="event-card shrink-0 group relative w-[350px] rounded-3xl overflow-hidden border border-gray-800/60 h-80 shadow-lg cursor-pointer">
+                        <img src="https://images.unsplash.com/photo-1551818255-e6e10975bc17?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/60 to-transparent opacity-90"></div>
+                        <div class="absolute bottom-0 left-0 p-8 w-full">
+                            <h5 class="text-white font-bold text-sm">Chandan Tiwadi</h5>
+                            <h4 class="text-xl font-bold text-white mb-1">Executive Event</h4>
                         </div>
-                        <div><div class="text-sm font-bold text-gray-200 mb-1">Executive Event</div><div class="text-xs text-gray-400">E-SUMMIT | L.S. Raheja College</div></div>
                     </div>
                 </div>
             </div>
@@ -1529,9 +1502,9 @@
         <div class="marquee-container marquee-pause marquee-mask">
             <div class="flex gap-6 animate-marquee-reverse whitespace-nowrap py-4">
                 <!-- Card Set 1 -->
-                <div class="flex gap-6">
+                <div class="flex gap-6 shrink-0">
                     <!-- Achievement 5 -->
-                    <div class="event-card group relative w-[350px] rounded-3xl overflow-hidden border border-gray-800/60 h-80 shadow-lg cursor-pointer">
+                    <div class="event-card shrink-0 group relative w-[350px] rounded-3xl overflow-hidden border border-gray-800/60 h-80 shadow-lg cursor-pointer">
                         <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110">
                         <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/60 to-transparent opacity-90"></div>
                         <div class="absolute bottom-0 left-0 p-8 w-full">
@@ -1547,7 +1520,7 @@
                         </div>
                     </div>
                     <!-- Achievement 6 -->
-                    <div class="event-card group relative w-[350px] rounded-3xl overflow-hidden border border-gray-800/60 h-80 shadow-lg cursor-pointer">
+                    <div class="event-card shrink-0 group relative w-[350px] rounded-3xl overflow-hidden border border-gray-800/60 h-80 shadow-lg cursor-pointer">
                         <img src="https://images.unsplash.com/photo-1526676037777-05a232554f77?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110">
                         <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/60 to-transparent opacity-90"></div>
                         <div class="absolute bottom-0 left-0 p-8 w-full">
@@ -1563,7 +1536,7 @@
                         </div>
                     </div>
                     <!-- Achievement 7 -->
-                    <div class="event-card group relative w-[350px] rounded-3xl overflow-hidden border border-gray-800/60 h-80 shadow-lg cursor-pointer">
+                    <div class="event-card shrink-0 group relative w-[350px] rounded-3xl overflow-hidden border border-gray-800/60 h-80 shadow-lg cursor-pointer">
                         <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110">
                         <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/60 to-transparent opacity-90"></div>
                         <div class="absolute bottom-0 left-0 p-8 w-full">
@@ -1579,7 +1552,7 @@
                         </div>
                     </div>
                     <!-- Achievement 8 -->
-                    <div class="event-card group relative w-[350px] rounded-3xl overflow-hidden border border-gray-800/60 h-80 shadow-lg cursor-pointer">
+                    <div class="event-card shrink-0 group relative w-[350px] rounded-3xl overflow-hidden border border-gray-800/60 h-80 shadow-lg cursor-pointer">
                         <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110">
                         <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/60 to-transparent opacity-90"></div>
                         <div class="absolute bottom-0 left-0 p-8 w-full">
@@ -1596,34 +1569,38 @@
                     </div>
                 </div>
                 <!-- Duplicate Set for Seamless Loop -->
-                <div class="flex gap-6">
-                    <div class="glass-card w-[350px] p-6 rounded-2xl flex flex-col gap-4 border-l-4 border-l-green-500 hover-glow transition-all duration-300">
-                        <div class="flex items-center gap-4">
-                            <div class="shrink-0"><img src="https://ui-avatars.com/api/?name=Paragkumar+Suthar&background=10B981&color=fff" class="w-14 h-14 rounded-full border border-green-500/50"></div>
-                            <div><h5 class="text-white font-bold">Paragkumar Suthar</h5><p class="text-xs text-green-400 font-mono">1st Rank | TYBSCIT</p></div>
+                <div class="flex gap-6 shrink-0">
+                    <div class="event-card shrink-0 group relative w-[350px] rounded-3xl overflow-hidden border border-gray-800/60 h-80 shadow-lg cursor-pointer">
+                        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/60 to-transparent opacity-90"></div>
+                        <div class="absolute bottom-0 left-0 p-8 w-full">
+                             <h5 class="text-white font-bold text-sm">Paragkumar Suthar</h5>
+                             <h4 class="text-xl font-bold text-white">Debate Competition</h4>
                         </div>
-                        <div><div class="text-sm font-bold text-gray-200 mb-1">Debate Competition</div><div class="text-xs text-gray-400">HUNAR | Lala Lajpat Rai College</div></div>
                     </div>
-                    <div class="glass-card w-[350px] p-6 rounded-2xl flex flex-col gap-4 border-l-4 border-l-indigo-500 hover-glow transition-all duration-300">
-                        <div class="flex items-center gap-4">
-                            <div class="shrink-0"><img src="https://ui-avatars.com/api/?name=Shahid+Khan&background=6366F1&color=fff" class="w-14 h-14 rounded-full border border-indigo-500/50"></div>
-                            <div><h5 class="text-white font-bold">Shahid Khan</h5><p class="text-xs text-indigo-400 font-mono">3rd Rank | TYBSCIT</p></div>
+                    <div class="event-card shrink-0 group relative w-[350px] rounded-3xl overflow-hidden border border-gray-800/60 h-80 shadow-lg cursor-pointer">
+                        <img src="https://images.unsplash.com/photo-1526676037777-05a232554f77?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/60 to-transparent opacity-90"></div>
+                        <div class="absolute bottom-0 left-0 p-8 w-full">
+                             <h5 class="text-white font-bold text-sm">Shahid Khan</h5>
+                             <h4 class="text-xl font-bold text-white">Tug of War</h4>
                         </div>
-                        <div><div class="text-sm font-bold text-gray-200 mb-1">Tug of War</div><div class="text-xs text-gray-400">Annual Sports | K.P.B. Hinduja College</div></div>
                     </div>
-                    <div class="glass-card w-[350px] p-6 rounded-2xl flex flex-col gap-4 border-l-4 border-l-cyan-500 hover-glow transition-all duration-300">
-                        <div class="flex items-center gap-4">
-                            <div class="shrink-0"><img src="https://ui-avatars.com/api/?name=Shweta+Jadhav&background=06B6D4&color=fff" class="w-14 h-14 rounded-full border border-cyan-500/50"></div>
-                            <div><h5 class="text-white font-bold">Shweta Jadhav</h5><p class="text-xs text-cyan-400 font-mono">1st Rank | TYBSCIT</p></div>
+                    <div class="event-card shrink-0 group relative w-[350px] rounded-3xl overflow-hidden border border-gray-800/60 h-80 shadow-lg cursor-pointer">
+                        <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/60 to-transparent opacity-90"></div>
+                        <div class="absolute bottom-0 left-0 p-8 w-full">
+                             <h5 class="text-white font-bold text-sm">Shweta Jadhav</h5>
+                             <h4 class="text-xl font-bold text-white">Mystery Mania</h4>
                         </div>
-                        <div><div class="text-sm font-bold text-gray-200 mb-1">Mystery Mania</div><div class="text-xs text-gray-400">HUNAR | Lala Lajpat Rai College</div></div>
                     </div>
-                    <div class="glass-card w-[350px] p-6 rounded-2xl flex flex-col gap-4 border-l-4 border-l-rose-500 hover-glow transition-all duration-300">
-                        <div class="flex items-center gap-4">
-                            <div class="shrink-0"><img src="https://ui-avatars.com/api/?name=Paragkumar+Suthar&background=F43F5E&color=fff" class="w-14 h-14 rounded-full border border-rose-500/50"></div>
-                            <div><h5 class="text-white font-bold">Paragkumar Suthar</h5><p class="text-xs text-rose-400 font-mono">2nd Rank | TYBSCIT</p></div>
+                    <div class="event-card shrink-0 group relative w-[350px] rounded-3xl overflow-hidden border border-gray-800/60 h-80 shadow-lg cursor-pointer">
+                        <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/60 to-transparent opacity-90"></div>
+                        <div class="absolute bottom-0 left-0 p-8 w-full">
+                             <h5 class="text-white font-bold text-sm">Paragkumar Suthar</h5>
+                             <h4 class="text-xl font-bold text-white">Pixelart Design</h4>
                         </div>
-                        <div><div class="text-sm font-bold text-gray-200 mb-1">Pixelart Design</div><div class="text-xs text-gray-400">TECHNOTSAV | Nirmala College</div></div>
                     </div>
                 </div>
             </div>
@@ -1754,9 +1731,7 @@
                 <p id="modal-description" class="text-gray-300 leading-relaxed text-sm mb-8">
                     Detailed description goes here...
                 </p>
-                <div class="flex gap-4">
-                    <button onclick="closeEventModal(event)" class="px-6 py-2.5 rounded-xl border border-gray-700 text-gray-300 font-bold text-sm hover:bg-white/5 transition-all">Close</button>
-                </div>
+
             </div>
         </div>
     </div>
