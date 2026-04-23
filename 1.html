@@ -191,11 +191,11 @@
             gap: 2rem;
             padding: 2rem 0;
             scroll-snap-type: x mandatory;
-            scrollbar-width: none; /* Hide for Firefox */
-            -ms-overflow-style: none; /* Hide for IE/Edge */
+            scrollbar-width: none;
+            -ms-overflow-style: none;
         }
         .events-scroll-container::-webkit-scrollbar {
-            display: none; /* Hide for Chrome/Safari */
+            display: none;
         }
         .event-card {
             flex: 0 0 350px;
@@ -242,7 +242,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-20">
                 <div class="flex-shrink-0 flex items-center gap-3 cursor-pointer group" onclick="window.scrollTo(0,0)">
-                    <div class="w-11 h-11 flex items-center justify-center font-mono font-bold text-xl transition-all">
+                    <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-brand-purple to-brand-purpleDark flex items-center justify-center font-mono font-bold text-xl shadow-[0_0_20px_rgba(139,92,246,0.4)] group-hover:shadow-[0_0_25px_rgba(139,92,246,0.6)] transition-all">
                         <img src="https://www.hindujacollege.edu.in/assets/newimages/logo/logo.webp" alt="Logo">
                     </div>
                     <div>
@@ -1306,7 +1306,7 @@
                     <div class="flex gap-8">
                         <!-- Card 1 -->
                         <div class="event-card group relative rounded-3xl overflow-hidden border border-gray-800/60 h-80 shadow-lg cursor-pointer" 
-                             onclick="openEventModal('AI & Future Tech', 'Seminar', 'Oct 2025', 'Guest lecture by industry experts discussing the latest trends in Machine Learning, Deep Learning, and the impact of AI on various industries including healthcare, finance, and automotive. The session will cover practical applications and future career paths.', 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')">
+                             onclick="openEventModal('AI & Future Tech', 'Seminar', 'Oct 2025', 'Guest lecture by industry experts discussing the latest trends in Machine Learning, Deep Learning, and the impact of AI on various industries including healthcare, finance, and automotive.', 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')">
                             <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Tech Seminar" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110">
                             <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/60 to-transparent opacity-90 group-hover:opacity-80 transition-opacity duration-500"></div>
                             <div class="absolute inset-0 bg-brand-purple/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 mix-blend-overlay"></div>
@@ -1322,7 +1322,7 @@
 
                         <!-- Card 2 -->
                         <div class="event-card group relative rounded-3xl overflow-hidden border border-gray-800/60 h-80 shadow-lg cursor-pointer"
-                             onclick="openEventModal('Hinduja E-Sports Arena 2025', 'E-Sports', 'Dec 2025', 'A massive E-Sports tournament hosted in the college campus featuring popular titles. Students will compete for the championship title and exciting prizes. The event aims to foster team spirit and competitive gaming skills.', 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')">
+                             onclick="openEventModal('Hinduja E-Sports Arena 2025', 'E-Sports', 'Dec 2025', 'A massive E-Sports tournament hosted in the college campus featuring popular titles.', 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')">
                             <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Hackathon" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110">
                             <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/60 to-transparent opacity-90 group-hover:opacity-80 transition-opacity duration-500"></div>
                             <div class="absolute inset-0 bg-pink-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 mix-blend-overlay"></div>
@@ -1338,7 +1338,7 @@
 
                         <!-- Card 3 -->
                         <div class="event-card group relative rounded-3xl overflow-hidden border border-gray-800/60 h-80 shadow-lg cursor-pointer"
-                             onclick="openEventModal('Cyber Security Live', 'Workshop', 'Feb 2026', 'Practical hands-on sessions covering network security, ethical hacking basics, and digital privacy. Participants will learn how to secure their data and understand the latest threats in the cyber world.', 'https://images.unsplash.com/photo-1515187029135-18ee286d815b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')">
+                             onclick="openEventModal('Cyber Security Live', 'Workshop', 'Feb 2026', 'Practical hands-on sessions covering network security and ethical hacking basics.', 'https://images.unsplash.com/photo-1515187029135-18ee286d815b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')">
                             <img src="https://images.unsplash.com/photo-1515187029135-18ee286d815b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Workshop" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110">
                             <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/60 to-transparent opacity-90 group-hover:opacity-80 transition-opacity duration-500"></div>
                             <div class="absolute inset-0 bg-blue-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 mix-blend-overlay"></div>
@@ -1351,40 +1351,15 @@
                                 <p class="text-sm text-gray-300 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100 line-clamp-2">Practical hands-on sessions covering network security and ethical hacking basics.</p>
                             </div>
                         </div>
-
-                        <!-- Card 4 -->
-                        <div class="event-card group relative rounded-3xl overflow-hidden border border-gray-800/60 h-80 shadow-lg cursor-pointer"
-                             onclick="openEventModal('Cloud Expo 2026', 'Exhibition', 'March 2026', 'A showcase of cloud computing technologies and their impact on modern businesses. Features projects by students and industry demos.', 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')">
-                            <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Cloud Expo" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110">
-                            <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/60 to-transparent opacity-90 group-hover:opacity-80 transition-opacity duration-500"></div>
-                            <div class="absolute inset-0 bg-brand-purple/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 mix-blend-overlay"></div>
-                            <div class="absolute bottom-0 left-0 p-8 w-full transform translate-y-6 group-hover:translate-y-0 transition-transform duration-500 ease-out">
-                                <div class="flex items-center gap-3 mb-4">
-                                    <span class="px-3 py-1 bg-brand-purple text-white text-[10px] font-bold uppercase tracking-wider rounded-full shadow-lg">Exhibition</span>
-                                    <span class="text-xs font-mono text-gray-400"><i class="far fa-clock mr-1"></i> March 2026</span>
-                                </div>
-                                <h4 class="text-2xl font-bold text-white mb-2">Cloud Expo 2026</h4>
-                                <p class="text-sm text-gray-300 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100 line-clamp-2">Showcase of next-gen cloud technologies.</p>
-                            </div>
-                        </div>
                     </div>
 
                     <!-- Duplicate for loop -->
                     <div class="flex gap-8">
-                        <!-- Card 1 -->
-                        <div class="event-card group relative rounded-3xl overflow-hidden border border-gray-800/60 h-80 shadow-lg cursor-pointer" 
-                             onclick="openEventModal('AI & Future Tech', 'Seminar', 'Oct 2025', '...', 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')">
-                            <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Tech Seminar" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110">
-                            <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/60 to-transparent opacity-90 group-hover:opacity-80 transition-opacity duration-500"></div>
-                            <div class="absolute bottom-0 left-0 p-8 w-full transform translate-y-6 group-hover:translate-y-0 transition-transform duration-500 ease-out">
-                                <div class="flex items-center gap-3 mb-4">
-                                    <span class="px-3 py-1 bg-brand-purple text-white text-[10px] font-bold uppercase tracking-wider rounded-full shadow-lg">Seminar</span>
-                                    <span class="text-xs font-mono text-gray-400">Oct 2025</span>
-                                </div>
-                                <h4 class="text-2xl font-bold text-white mb-2">AI & Future Tech</h4>
-                            </div>
+                        <div class="event-card group relative rounded-3xl overflow-hidden border border-gray-800/60 h-80 shadow-lg cursor-pointer" onclick="openEventModal('AI & Future Tech', 'Seminar', 'Oct 2025', '...', 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')">
+                            <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/60 to-transparent opacity-90"></div>
+                            <div class="absolute bottom-0 left-0 p-8 w-full"><h4 class="text-2xl font-bold text-white">AI & Future Tech</h4></div>
                         </div>
-                        <!-- ... rest of duplicates can be simplified or full ... -->
                         <div class="event-card group relative rounded-3xl overflow-hidden border border-gray-800/60 h-80 shadow-lg cursor-pointer" onclick="openEventModal('Hinduja E-Sports Arena 2025', 'E-Sports', 'Dec 2025', '...', 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')">
                             <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover">
                             <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/60 to-transparent opacity-90"></div>
@@ -1394,11 +1369,6 @@
                             <img src="https://images.unsplash.com/photo-1515187029135-18ee286d815b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover">
                             <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/60 to-transparent opacity-90"></div>
                             <div class="absolute bottom-0 left-0 p-8 w-full"><h4 class="text-2xl font-bold text-white">Cyber Security Live</h4></div>
-                        </div>
-                        <div class="event-card group relative rounded-3xl overflow-hidden border border-gray-800/60 h-80 shadow-lg cursor-pointer" onclick="openEventModal('Cloud Expo 2026', 'Exhibition', 'March 2026', '...', 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')">
-                            <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover">
-                            <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/60 to-transparent opacity-90"></div>
-                            <div class="absolute bottom-0 left-0 p-8 w-full"><h4 class="text-2xl font-bold text-white">Cloud Expo 2026</h4></div>
                         </div>
                     </div>
                 </div>
@@ -1425,11 +1395,9 @@
             <div class="flex gap-6 animate-marquee whitespace-nowrap py-4">
                 <!-- Card Set 1 -->
                 <div class="flex gap-6">
-                    <!-- Achievement 1 -->
                     <div class="event-card group relative w-[350px] rounded-3xl overflow-hidden border border-gray-800/60 h-80 shadow-lg cursor-pointer">
                         <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110">
-                        <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/60 to-transparent opacity-90 group-hover:opacity-80"></div>
-                        <div class="absolute inset-0 bg-brand-purple/10 opacity-0 group-hover:opacity-100 mix-blend-overlay"></div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/60 to-transparent opacity-90"></div>
                         <div class="absolute bottom-0 left-0 p-8 w-full">
                             <div class="flex items-center gap-3 mb-4">
                                 <img src="https://ui-avatars.com/api/?name=Paragkumar+Suthar&background=8B5CF6&color=fff" class="w-10 h-10 rounded-full border border-brand-purple/50">
@@ -1442,7 +1410,6 @@
                             <p class="text-xs text-gray-400">E-SUMMIT | L.S. Raheja College</p>
                         </div>
                     </div>
-                    <!-- Achievement 2 -->
                     <div class="event-card group relative w-[350px] rounded-3xl overflow-hidden border border-gray-800/60 h-80 shadow-lg cursor-pointer">
                         <img src="https://images.unsplash.com/photo-1475721027187-4024733924f3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110">
                         <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/60 to-transparent opacity-90"></div>
@@ -1458,7 +1425,6 @@
                             <p class="text-xs text-gray-400">KARMA | Pune Vidyarthi College</p>
                         </div>
                     </div>
-                    <!-- Achievement 3 -->
                     <div class="event-card group relative w-[350px] rounded-3xl overflow-hidden border border-gray-800/60 h-80 shadow-lg cursor-pointer">
                         <img src="https://images.unsplash.com/photo-1516280440614-37939bbacd81?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110">
                         <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/60 to-transparent opacity-90"></div>
@@ -1474,7 +1440,6 @@
                             <p class="text-xs text-gray-400">KARMA | Pune Vidyarthi College</p>
                         </div>
                     </div>
-                    <!-- Achievement 4 -->
                     <div class="event-card group relative w-[350px] rounded-3xl overflow-hidden border border-gray-800/60 h-80 shadow-lg cursor-pointer">
                         <img src="https://images.unsplash.com/photo-1551818255-e6e10975bc17?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110">
                         <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/60 to-transparent opacity-90"></div>
@@ -1530,7 +1495,6 @@
             <div class="flex gap-6 animate-marquee-reverse whitespace-nowrap py-4">
                 <!-- Card Set 1 -->
                 <div class="flex gap-6">
-                    <!-- Achievement 5 -->
                     <div class="event-card group relative w-[350px] rounded-3xl overflow-hidden border border-gray-800/60 h-80 shadow-lg cursor-pointer">
                         <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110">
                         <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/60 to-transparent opacity-90"></div>
@@ -1546,7 +1510,6 @@
                             <p class="text-xs text-gray-400">HUNAR | Lala Lajpat Rai College</p>
                         </div>
                     </div>
-                    <!-- Achievement 6 -->
                     <div class="event-card group relative w-[350px] rounded-3xl overflow-hidden border border-gray-800/60 h-80 shadow-lg cursor-pointer">
                         <img src="https://images.unsplash.com/photo-1526676037777-05a232554f77?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110">
                         <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/60 to-transparent opacity-90"></div>
@@ -1562,7 +1525,6 @@
                             <p class="text-xs text-gray-400">Annual Sports | K.P.B. Hinduja College</p>
                         </div>
                     </div>
-                    <!-- Achievement 7 -->
                     <div class="event-card group relative w-[350px] rounded-3xl overflow-hidden border border-gray-800/60 h-80 shadow-lg cursor-pointer">
                         <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110">
                         <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/60 to-transparent opacity-90"></div>
@@ -1578,7 +1540,6 @@
                             <p class="text-xs text-gray-400">HUNAR | Lala Lajpat Rai College</p>
                         </div>
                     </div>
-                    <!-- Achievement 8 -->
                     <div class="event-card group relative w-[350px] rounded-3xl overflow-hidden border border-gray-800/60 h-80 shadow-lg cursor-pointer">
                         <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110">
                         <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/60 to-transparent opacity-90"></div>
@@ -1711,7 +1672,7 @@
             <div class="flex flex-col md:flex-row justify-between items-center gap-6 mb-10">
                 <div class="text-center md:text-left">
                     <h2 class="text-2xl font-bold flex items-center justify-center md:justify-start gap-3 mb-2 text-white">
-                        <div class="w-12 h-12 flex items-center justify-center font-mono text-sm">
+                        <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-brand-purple to-brand-purpleDark flex items-center justify-center font-mono text-sm shadow-[0_0_15px_rgba(139,92,246,0.3)]">
                             <img src="https://www.hindujacollege.edu.in/assets/newimages/logo/logo.webp" alt="Logo">
                         </div>
                         K.P.B. Hinduja College Of Commerece 
@@ -1735,7 +1696,6 @@
     <!-- Event Detail Modal -->
     <div id="event-modal" class="modal-overlay" onclick="closeEventModal(event)">
         <div class="modal-content glass-card rounded-3xl overflow-hidden flex flex-col md:flex-row shadow-2xl border border-white/20" onclick="event.stopPropagation()">
-            <!-- Modal Image -->
             <div class="md:w-1/2 h-64 md:h-auto relative">
                 <img id="modal-image" src="" alt="Event Detail" class="w-full h-full object-cover">
                 <div class="absolute inset-0 bg-gradient-to-t from-brand-dark/80 to-transparent"></div>
@@ -1743,7 +1703,6 @@
                     <i class="fas fa-times"></i>
                 </button>
             </div>
-            <!-- Modal Info -->
             <div class="md:w-1/2 p-8 md:p-10 flex flex-col justify-center">
                 <div class="flex items-center gap-3 mb-4">
                     <span id="modal-category" class="px-3 py-1 bg-brand-purple text-white text-[10px] font-bold uppercase tracking-wider rounded-full">Category</span>
@@ -1751,10 +1710,9 @@
                 </div>
                 <h4 id="modal-title" class="text-3xl font-bold text-white mb-4 leading-tight">Event Title</h4>
                 <div class="w-12 h-1 bg-brand-purple mb-6 rounded-full"></div>
-                <p id="modal-description" class="text-gray-300 leading-relaxed text-sm mb-8">
-                    Detailed description goes here...
-                </p>
+                <p id="modal-description" class="text-gray-300 leading-relaxed text-sm mb-8"></p>
                 <div class="flex gap-4">
+                    <button class="px-6 py-2.5 rounded-xl bg-brand-purple text-white font-bold text-sm hover:bg-brand-purpleLight transition-all">Register Now</button>
                     <button onclick="closeEventModal(event)" class="px-6 py-2.5 rounded-xl border border-gray-700 text-gray-300 font-bold text-sm hover:bg-white/5 transition-all">Close</button>
                 </div>
             </div>
@@ -1860,22 +1818,14 @@
             modalDate.textContent = date;
             modalDesc.textContent = desc;
             modalImg.src = img;
-            
             modal.classList.add('active');
-            document.body.style.overflow = 'hidden'; // Prevent scroll
+            document.body.style.overflow = 'hidden';
         }
 
         function closeEventModal(e) {
             modal.classList.remove('active');
-            document.body.style.overflow = 'auto'; // Restore scroll
+            document.body.style.overflow = 'auto';
         }
-
-        // Horizontal Scroll Auto-Scroll Right to Left (Optional but user mentioned RTL scroll)
-        // If they want automatic scrolling, we can add a simple interval, 
-        // but it might interfere with clicking. I'll stick to a smooth manual scroll 
-        // that starts at the right if that's what they meant.
-        // Actually, "Horizontal scrolling from right to left" usually means 
-        // the direction cards move when you scroll right.
     </script>
 </body>
 </html>
